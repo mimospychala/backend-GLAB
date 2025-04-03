@@ -1,5 +1,7 @@
 package ch.bbcag.backend.account;
 
+import ch.bbcag.backend.combo.Combo;
+import ch.bbcag.backend.comment.Comment;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
@@ -7,10 +9,12 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.awt.print.Book;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Account implements UserDetails {
@@ -34,7 +38,11 @@ public class Account implements UserDetails {
     @UpdateTimestamp
     private Instant updatedAt;
 
+    @OneToMany(mappedBy = "account")
+    private Set<Comment> comments;
 
+    @OneToMany(mappedBy = "account")
+    private Set<Combo> combos;
 
     public Integer getId() {
         return id;
@@ -82,6 +90,22 @@ public class Account implements UserDetails {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Set<Combo> getCombos() {
+        return combos;
+    }
+
+    public void setCombos(Set<Combo> combos) {
+        this.combos = combos;
     }
 
     @Override

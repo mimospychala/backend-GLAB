@@ -1,5 +1,7 @@
 package ch.bbcag.backend.account;
 
+import java.util.List;
+
 public class AccountResponseDTO {
     private Integer id;
     private String username;
