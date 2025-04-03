@@ -22,7 +22,7 @@ public class Combo {
     private double nomNomRating;
     @ManyToMany(mappedBy = "linkedCombos")
     private Set<Product> linkedProducts;
-    @OneToMany(mappedBy = "comment")
+    @OneToMany(mappedBy = "combo")
     private Set<Comment> linkedComments;
 
     @Override

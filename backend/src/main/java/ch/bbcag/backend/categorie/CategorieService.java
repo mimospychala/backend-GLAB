@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @Service
 public class CategorieService {
@@ -16,6 +15,7 @@ public class CategorieService {
     public CategorieService(CategorieRepository categorieRepository) {
         this.categorieRepository = categorieRepository;
     }
+
     public List<Categorie> findAll() {
         return categorieRepository.findAll();
     }
@@ -24,7 +24,7 @@ public class CategorieService {
         return categorieRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public Optional<Categorie> findByName(String name) {
+    public List<Categorie> findByName(String name) {
         return categorieRepository.findByName(name);
     }
 
@@ -64,4 +64,4 @@ public class CategorieService {
         }
     }
 }
-}
+
