@@ -1,0 +1,22 @@
+### Sign Up
+POST http://localhost:8080/accounts/signup
+content-type: application/json
+
+{
+  "username": "Ivan",
+  "email": "ivan@bbcag.ch",
+  "password": "12345678"
+}
+
+### Sign In
+POST http://localhost:8080/accounts/signin
+content-type: application/json
+
+{
+  "email": "admin@bbcag.com",
+  "password": "admin1234"
+}
+
+> {%
+    client.global.set("auth_token", response.body.token);
+%}
