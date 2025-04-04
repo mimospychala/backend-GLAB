@@ -1,6 +1,7 @@
 package ch.bbcag.backend.comment;
 
 import ch.bbcag.backend.account.Account;
+import ch.bbcag.backend.account.AccountResponseDTO;
 import ch.bbcag.backend.combo.Combo;
 import ch.bbcag.backend.product.Product;
 import jakarta.persistence.*;
@@ -12,7 +13,6 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer userId;
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
@@ -23,8 +23,8 @@ public class Comment {
     @JoinColumn(name = "combo_id")
     private Combo combo;
     private String text;
-    private Integer likes;
-    private Integer dislikes;
+    private Integer likes = 0;
+    private Integer dislikes = 0;
 
     @Override
     public boolean equals(Object o) {
@@ -47,13 +47,6 @@ public class Comment {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
     public Product getProduct() {
         return product;
