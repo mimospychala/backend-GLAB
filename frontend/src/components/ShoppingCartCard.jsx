@@ -7,19 +7,21 @@ import Button from "./Button";
 
 export default function ShoppingCartCard({ product }) {
   const { id, name, marke, volumes } = product
-  const [ count, setCount] = useState(1)
+  const [count, setCount] = useState(1)
 
   const increment = () => {
-    setCount(count+1)
+    setCount(count + 1)
   }
 
   const decrement = () => {
-    setCount(count-1)
+    if (count > 1) {
+      setCount(count - 1)
+    }
   }
 
-  function calcPrice(price, count){
-    let result = price*count
-    let result2 = Math.round(result * 100)/100
+  function calcPrice(price, count) {
+    let result = price * count
+    let result2 = Math.round(result * 100) / 100
     return result2.toFixed(2)
   }
 
@@ -34,7 +36,7 @@ export default function ShoppingCartCard({ product }) {
         <Button onClick={decrement}>-</Button>
         {count}
         <Button onClick={increment}>+</Button>
-        <p>{calcPrice(volumes[1].price, count)} CHF.</p>
+        <p>{calcPrice(volumes[1].price, count)} CHF</p>
       </div>
     </article>
   );
