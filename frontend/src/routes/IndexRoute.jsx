@@ -1,14 +1,14 @@
 import Header from "@/components/Header"
 import LinkButton from "@/components/LinkButton"
 import SideBar from "@/components/SideBar"
-import styles from "./IndexRoute.module.css"
+import ShoppingCartCard from "@/components/ShoppingCartCard"
 
 const product = [
   {
       "id": "1",
       "name": "Cola",
       "marke": "Coca-Cola",
-      "prices": [
+      "volumes": [
           {
               "volume": "0.5L",
               "price": "1.50"
@@ -71,7 +71,7 @@ export default function IndexRoute() {
     <>
       <SideBar/>
       <LinkButton to="/kasse">Kasse</LinkButton>
-
+      <ShoppingCartCard product={product[1]}/>
     </>
-  )
+    )
 }

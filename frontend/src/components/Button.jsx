@@ -1,4 +1,5 @@
 import LinkButton from "./LinkButton";
+import "./Button.module.css"
 
 export default function Button({to = "", children, ...props}){
     return(

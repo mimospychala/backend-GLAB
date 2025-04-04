@@ -1,4 +1,5 @@
 .app {
-  max-width: 60ch;
+  max-width: 970px;
   margin: 0 auto;
+  padding: 20px
 }

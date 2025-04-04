@@ -1,0 +1,29 @@
+article {
+    border: solid 2px black;
+    border-radius: 9px;
+    max-width: 900px;
+  
+    display: flex;
+    p, h3{margin: 0}
+   
+    background-color: #E37C24;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+    align-items: center;
+    p{
+        font-size: 20px;
+    }
+    h3{
+        font-size: 25px;
+    }
+    img{
+        max-width: 60px;
+    }
+
+    .drinksSnacks{
+        width: 80px;
+        height: auto
+    }
+    
+
+}
