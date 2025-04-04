@@ -19,8 +19,8 @@ public class ComboRequestDTO {
     @Min(0)
     private BigDecimal price;
 
-    @Min(1)
-    @Max(5)
+    @Min(value = 1, message = "must be bigger or same than 1")
+    @Max(value = 5, message = "must be smaller or same than 5")
     private Double nomNomRating;
 
     @Override

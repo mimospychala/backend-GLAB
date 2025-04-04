@@ -27,8 +27,8 @@ public class Product {
     @ManyToMany
     @JoinTable(
             name = "categorie_product",
-            joinColumns = @JoinColumn(name = "categorie_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id"))
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "categorie_id"))
     private Set<Categorie> linkedCategories;
     private double nomNomRating;
     @OneToMany(mappedBy = "product")

@@ -38,6 +38,7 @@ public class ComboService {
     public Combo update(Combo changingCombo, Integer id) {
         Combo existingCombo = this.findById(id);
         changingCombo.setId(id);
+
         return comboRepository.save(changingCombo);
     }
 
