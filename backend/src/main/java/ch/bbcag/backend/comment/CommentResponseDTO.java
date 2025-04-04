@@ -3,6 +3,7 @@ package ch.bbcag.backend.comment;
 import ch.bbcag.backend.account.Account;
 import ch.bbcag.backend.account.AccountResponseDTO;
 import ch.bbcag.backend.combo.Combo;
+import ch.bbcag.backend.combo.ComboResponseDTO;
 import ch.bbcag.backend.product.Product;
 
 import java.util.Objects;
@@ -12,7 +13,7 @@ public class CommentResponseDTO extends CommentRequestDTO{
     private Integer likes;
     private Integer dislikes;
     private AccountResponseDTO account;
-    private Combo combo;
+    private ComboResponseDTO combo;
     private Product product;
 
     @Override
@@ -61,11 +62,11 @@ public class CommentResponseDTO extends CommentRequestDTO{
         this.account = account;
     }
 
-    public Combo getCombo() {
+    public ComboResponseDTO getCombo() {
         return combo;
     }
 
-    public void setCombo(Combo combo) {
+    public void setCombo(ComboResponseDTO combo) {
         this.combo = combo;
     }
 
