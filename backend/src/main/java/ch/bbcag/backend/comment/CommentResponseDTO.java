@@ -5,6 +5,7 @@ import ch.bbcag.backend.account.AccountResponseDTO;
 import ch.bbcag.backend.combo.Combo;
 import ch.bbcag.backend.combo.ComboResponseDTO;
 import ch.bbcag.backend.product.Product;
+import ch.bbcag.backend.product.ProductResponseDTO;
 
 import java.util.Objects;
 
@@ -13,8 +14,7 @@ public class CommentResponseDTO extends CommentRequestDTO{
     private Integer likes;
     private Integer dislikes;
     private AccountResponseDTO account;
-    private ComboResponseDTO combo;
-    private Product product;
+
 
     @Override
     public boolean equals(Object o) {
@@ -62,19 +62,5 @@ public class CommentResponseDTO extends CommentRequestDTO{
         this.account = account;
     }
 
-    public ComboResponseDTO getCombo() {
-        return combo;
-    }
 
-    public void setCombo(ComboResponseDTO combo) {
-        this.combo = combo;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 }

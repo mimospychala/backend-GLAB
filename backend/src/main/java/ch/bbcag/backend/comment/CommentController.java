@@ -2,6 +2,9 @@ package ch.bbcag.backend.comment;
 
 import ch.bbcag.backend.account.Account;
 import ch.bbcag.backend.account.AccountResponseDTO;
+import ch.bbcag.backend.account.AccountService;
+import ch.bbcag.backend.combo.ComboService;
+import ch.bbcag.backend.product.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
@@ -27,9 +30,13 @@ public class CommentController {
     public static final String PATH = "/comments";
 
     private final CommentService commentService;
+    private final ComboService comboService;
+    private final ProductService productService;
 
-    public CommentController(CommentService commentService) {
+    public CommentController(CommentService commentService, ComboService comboService, ProductService productService) {
         this.commentService = commentService;
+        this.comboService = comboService;
+        this.productService = productService;
     }
 
     @GetMapping("/{id}")
@@ -66,7 +73,7 @@ public class CommentController {
             @AuthenticationPrincipal Account account
     ) {
         try {
-            Comment newComment = CommentMapper.fromRequestDTO(newCommentDTO);
+            Comment newComment = CommentMapper.fromRequestDTO(newCommentDTO, comboService, productService);
             newComment.setAccount(account);
             Comment savedComment = commentService.insert(newComment);
             return ResponseEntity.status(HttpStatus.CREATED).body(CommentMapper.toResponseDTO(savedComment));
@@ -133,7 +140,7 @@ public class CommentController {
             @Parameter(description = "Id of comment to update")
             @PathVariable Integer id) {
         try {
-            Comment updateComment = CommentMapper.fromRequestDTO(updateCommentDTO);
+            Comment updateComment = CommentMapper.fromRequestDTO(updateCommentDTO, comboService, productService);
             Comment savedComment = commentService.update(updateComment, id);
             return ResponseEntity.ok(CommentMapper.toResponseDTO(savedComment));
         } catch (DataIntegrityViolationException e) {
