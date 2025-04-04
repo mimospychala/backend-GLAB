@@ -3,12 +3,13 @@ import LinkButton from "@/components/LinkButton"
 import ShoppingCartCard from "@/components/ShoppingCartCard"
 import ProductCard from "@/components/ProductCard"
 import ProductCards from "@/components/ProductCards"
+import Button from "@/components/Button"
 
 export default function ComponetRoute() {
     return (
         <>
             <SideBar />
-            <LinkButton to="/kasse">Kasse</LinkButton>
+            <Button>Kasse</Button>
             <ShoppingCartCard product={product[0]} />
             <ProductCard product={product[0]}/>
             <ProductCards products={product}/>
