@@ -17,6 +17,8 @@ public class Product {
     private String name;
     private String marke;
     private String description;
+    private String image;
+    private String altText;
     @ManyToMany
     @JoinTable(
             name = "price_product",
@@ -53,6 +55,22 @@ public class Product {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getAltText() {
+        return altText;
+    }
+
+    public void setAltText(String altText) {
+        this.altText = altText;
     }
 
     public Integer getId() {

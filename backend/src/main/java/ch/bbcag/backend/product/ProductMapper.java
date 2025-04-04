@@ -16,6 +16,8 @@ public class ProductMapper {
         productResponseDTO.setName(product.getName());
         productResponseDTO.setDescription(product.getDescription());
         productResponseDTO.setNomNomRating(product.getNomNomRating());
+        productResponseDTO.setImage(product.getImage());
+        productResponseDTO.setAltText(product.getAltText());
 
         if(product.getLinkedPrices() != null){
             List<Integer> priceIds = product
@@ -63,6 +65,8 @@ public class ProductMapper {
         product.setName(productRequestDTO.getName());
         product.setDescription(productRequestDTO.getDescription());
         product.setNomNomRating(productRequestDTO.getNomNomRating());
+        product.setImage(productRequestDTO.getImage());
+        product.setAltText(productRequestDTO.getAltText());
         product.setLinkedPrices(productRequestDTO.getLinkedPricesIds().stream().map(id -> {
             Price price = new Price();
             price.setId(id);
