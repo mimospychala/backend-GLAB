@@ -5,6 +5,7 @@ import ch.bbcag.backend.comment.Comment;
 import ch.bbcag.backend.product.Product;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.Set;
 
@@ -18,8 +19,8 @@ public class Combo {
     private Account account;
     private String name;
     private String description;
-    private double price;
-    private double nomNomRating;
+    private BigDecimal price;
+    private Double nomNomRating;
     @ManyToMany(mappedBy = "linkedCombos")
     private Set<Product> linkedProducts;
     @OneToMany(mappedBy = "combo")
@@ -70,15 +71,15 @@ public class Combo {
         this.description = description;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public double getNomNomRating() {
+    public Double getNomNomRating() {
         return nomNomRating;
     }
 
