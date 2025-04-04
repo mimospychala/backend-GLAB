@@ -13,6 +13,8 @@ public class ProductRequestDTO {
     @NotBlank
     private String marke;
     private String description;
+    private String image;
+    private String altText;
     private List<Integer> linkedPricesIds;
     private List<Integer> linkedCategoriesIds;
 
@@ -66,6 +68,22 @@ public class ProductRequestDTO {
 
     public void setLinkedCategoriesIds(List<Integer> linkedCategoriesIds) {
         this.linkedCategoriesIds = linkedCategoriesIds;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getAltText() {
+        return altText;
+    }
+
+    public void setAltText(String altText) {
+        this.altText = altText;
     }
 
     @Min(value = 1, message = "must be bigger or same than 1")
