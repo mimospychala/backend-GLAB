@@ -9,7 +9,7 @@ export default function ComponetRoute() {
     return (
         <>
             <SideBar />
-            <Button>Kasse</Button>
+            <LinkButton to="/kasse">Kasse</LinkButton>
             <ShoppingCartCard product={product[0]} />
             <ProductCard product={product[0]}/>
             <ProductCards products={product}/>
