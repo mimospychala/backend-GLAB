@@ -9,7 +9,6 @@ import ShareButton from "@/components/ShareButton"
 import ProductDetailCard from "@/components/ProductDetailCard"
 import DetailRoute from "./DetailsRoute"
 import siedeBarItems from "@/lib/data/sideBarItems";
-import ShoppingCartCards from "@/components/ShoppingCartCards"
 
 export default function ComponetRoute() {
     return (
