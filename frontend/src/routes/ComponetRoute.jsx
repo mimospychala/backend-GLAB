@@ -14,6 +14,7 @@ export default function ComponetRoute() {
     return (
         <>
             <SideBar sideBarItems={siedeBarItems}/>
+            <SideBar sideBarItems={sideBarItems}/>
             <Button>Kasse</Button>
             <ShoppingCartCard product={product[0]} />
             <ShoppingCartCards products={product}/>
