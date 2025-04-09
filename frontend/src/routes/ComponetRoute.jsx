@@ -6,7 +6,6 @@ import ProductCards from "@/components/ProductCards"
 import Button from "@/components/Button"
 import ShoppingCartCards from "@/components/ShoppingCartCards"
 import siedeBarItems from "@/lib/data/sideBarItems";
-import ShoppingCartCards from "@/components/ShoppingCartCards"
 
 export default function ComponetRoute() {
     return (
