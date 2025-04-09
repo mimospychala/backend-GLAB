@@ -1,32 +1,40 @@
 import IndexRoute from "@/routes/IndexRoute";
-import styles from "./ShoppingCartCard.module.css"
-import "./ShoppingCartCard.module.css"
-import { useState } from "react";
+import styles from "./ShoppingCartCard.module.css";
+import "./ShoppingCartCard.module.css";
+import { useState, useEffect } from "react";
 import Button from "./Button";
 
-
 export default function ShoppingCartCard({ product }) {
-  const { id, name, marke, volumes } = product
-  const [count, setCount] = useState(1)
+  const { id, name, marke, volumes } = product;
+
+
+  const getInitialCount = () => {
+    const saved = localStorage.getItem(`count-${id}`);
+    return saved ? parseInt(saved) : 1;
+  };
+
+  const [count, setCount] = useState(getInitialCount);
+
+  useEffect(() => {
+    localStorage.setItem(`count-${id}`, count);
+  }, [count, id]);
 
   const increment = () => {
-    setCount(count + 1)
-  }
+    setCount(prev => prev + 1);
+  };
 
   const decrement = () => {
-    if (count > 1) {
-      setCount(count - 1)
-    }
-  }
+    setCount(prev => (prev > 1 ? prev - 1 : 1));
+  };
 
   function calcPrice(price, count) {
-    let result = price * count
-    let result2 = Math.round(result * 100) / 100
-    return result2.toFixed(2)
+    const result = price * count;
+    const result2 = Math.round(result * 100) / 100;
+    return result2.toFixed(2);
   }
 
   return (
-    <article >
+    <article>
       <img src="/snacks.png" alt="Snacks" className={styles.drinksSnacks} />
       <div>
         <h3>{name}</h3>
@@ -36,7 +44,7 @@ export default function ShoppingCartCard({ product }) {
         <Button className={styles.smallButton} onClick={decrement}>-</Button>
         {count}
         <Button className={styles.smallButton} onClick={increment}>+</Button>
-        <p>{calcPrice(volumes[1].price, count)} CHF</p>
+        <p>{calcPrice(volumes[0].price, count)} CHF</p>
       </div>
     </article>
   );
