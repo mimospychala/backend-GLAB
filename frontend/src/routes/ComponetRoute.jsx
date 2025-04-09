@@ -4,6 +4,7 @@ import ShoppingCartCard from "@/components/ShoppingCartCard"
 import ProductCard from "@/components/ProductCard"
 import ProductCards from "@/components/ProductCards"
 import Button from "@/components/Button"
+import ShoppingCartCards from "@/components/ShoppingCartCards"
 
 export default function ComponetRoute() {
     return (
@@ -11,8 +12,10 @@ export default function ComponetRoute() {
             <SideBar />
             <Button>Kasse</Button>
             <ShoppingCartCard product={product[0]} />
+            <ShoppingCartCards products={product}/>
             <ProductCard product={product[0]}/>
             <ProductCards products={product}/>
+
         </>
     )
 }
