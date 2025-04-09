@@ -33,9 +33,9 @@ export default function ShoppingCartCard({ product }) {
         <p>{marke}</p>
       </div>
       <div>
-        <Button onClick={decrement}>-</Button>
+        <Button className={styles.smallButton} onClick={decrement}>-</Button>
         {count}
-        <Button onClick={increment}>+</Button>
+        <Button className={styles.smallButton} onClick={increment}>+</Button>
         <p>{calcPrice(volumes[1].price, count)} CHF</p>
       </div>
     </article>
