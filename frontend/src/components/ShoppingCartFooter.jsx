@@ -13,22 +13,12 @@ export default function ShoppingcartFooter({ }) {
 
     return (
         <footer className={styles.footer}>
-            <div>
-                <p>Total:</p>
-                <p></p>
-            </div>
-
-
-            <div>
-                <p>{totalPrice.toFixed(2)} CHF</p>
-                <Button> Zur Kasse </Button>
-                <div className={styles.bar}></div>
-                <div className={styles.content}>
-                    <p >Total:</p>
-                    <div className={styles.footerMargin}>
-                        <p>{`${totalPrice.toFixed(2)}`} CHF</p>
-                        <Button> Zur Kasse </Button>
-                    </div>
+            <div className={styles.bar}></div>
+            <div className={styles.content}>
+                <p >Total:</p>
+                <div className={styles.footerMargin}>
+                    <p>{`${totalPrice.toFixed(2)}`} CHF</p>
+                    <Button> Zur Kasse </Button>
                 </div>
             </div>
         </footer>
