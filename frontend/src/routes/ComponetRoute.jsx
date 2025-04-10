@@ -25,6 +25,12 @@ export default function ComponetRoute() {
             <ProductDetailCard product={product[0]}/>
             <DetailRoute product={product[0]}/>
 
+            <SideBar sideBarItems={siedeBarItems} />
+            <Button>Kasse</Button>
+            <ShoppingCartCard product={product[0]} />
+            <ShoppingCartCards products={product} />
+            <ProductCard product={product[0]} />
+            <ProductCards products={product} />
         </>
     )
 }

@@ -8,37 +8,45 @@ import ComponetRoute from "./routes/ComponetRoute"
 import ShoppingCartRoute from "./routes/ShoppingCartRoute"
 import DetailCard from "./components/DetailCard"
 import DetailRoute from "./routes/DetailsRoute"
+import ListRoute from "./routes/ListRoute"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
     children: [
       {
         index: true,
-        element: <IndexRoute/>
+        element: <IndexRoute />
       },
       {
         path: "componets",
-        element: <ComponetRoute/>
+        element: <ComponetRoute />
       },
       {
         path: "shoppingcart",
-        element: <ShoppingCartRoute/>
+        element: <ShoppingCartRoute />
       },
       {
         path: "products/:id",
-        element: <DetailRoute/>,
+        element: <DetailRoute />,
         loader: DetailRoute.loader
       }
+      ,
+      {
+        path: "products",
+        element: <ListRoute />,
+        loader: ListRoute.loader
+      },
+
     ]
   }
 ])
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
-      <RouterProvider router={router}/>
-    </StrictMode>
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
 )
 
 
