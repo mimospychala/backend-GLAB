@@ -5,6 +5,9 @@ import ProductCard from "@/components/ProductCard"
 import ProductCards from "@/components/ProductCards"
 import Button from "@/components/Button"
 import ShoppingCartCards from "@/components/ShoppingCartCards"
+import ShareButton from "@/components/ShareButton"
+import ProductDetailCard from "@/components/ProductDetailCard"
+import DetailRoute from "./DetailsRoute"
 
 export default function ComponetRoute() {
     return (
@@ -15,6 +18,9 @@ export default function ComponetRoute() {
             <ShoppingCartCards products={product}/>
             <ProductCard product={product[0]}/>
             <ProductCards products={product}/>
+            <ShareButton/>
+            <ProductDetailCard product={product[0]}/>
+            <DetailRoute product={product[0]}/>
 
         </>
     )
@@ -25,6 +31,7 @@ const product = [
         id: "1",
         name: "Cola",
         marke: "Coca-Cola",
+        numNumRating: "5",
         altImag: "/snacks.png",
         img: "/snacks.png",
         volumes: [

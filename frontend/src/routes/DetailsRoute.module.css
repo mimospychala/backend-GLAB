@@ -1,0 +1,27 @@
+img{
+    width: 500px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.ratingMarke{
+    display: flex;
+}
+
+.spacer{
+    align-self: center;
+    width: 5px;
+    height: 50px;
+    background-color: black;
+    border-radius: 2px;
+}
+
+.itemContainer{
+    
+    width: 1fr;
+}
