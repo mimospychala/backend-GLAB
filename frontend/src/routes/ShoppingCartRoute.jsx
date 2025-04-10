@@ -9,12 +9,14 @@ import { useState } from "react";
 export default function ShoppingCartRoute(){
 
     return(
+        <main className={styles.mainContent}>
         <div>
             <h3 className={styles.title}> Shoppingcart </h3>
             <SideBar sideBarItems={sideBarItems}/>
             <ShoppingCartCards products={product}/>
             <ShoppingcartFooter/>
         </div>
+        </main>
 
     )
 }
