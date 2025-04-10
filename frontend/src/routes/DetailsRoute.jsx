@@ -5,6 +5,8 @@ import ShareButton from "@/components/ShareButton";
 
 import "./DetailsRoute.module.css"
 import styles from "./DetailsRoute.module.css"
+import Button from "@/components/Button";
+import LikeButton from "@/components/LikeButton";
 
 export default function DetailRoute({ product }) {
     return (
@@ -24,11 +26,12 @@ export default function DetailRoute({ product }) {
                             <h3>{product.marke}</h3>
                         </div>
                     </div>
-                    <div>
+                    <div className={styles.comentShare}>
+                        <LikeButton/>
                         <CommentButton/>
                         <ShareButton/>
                     </div>
-                    
+                    <Button className={styles.toPayOutButton}>Zur Kasse</Button>
                 </div>
             </div>
         </>
