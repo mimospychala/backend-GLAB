@@ -13,8 +13,11 @@ export default function ShoppingCartCard({ product }) {
     
    } = product;
 
-  const productInCart = products.find(p => p.id === id)
-  const count = productInCart ? productInCart.count : 0
+  const [count, setCount] = useState(getInitialCount);
+
+  useEffect(() => {
+    localStorage.setItem(`count-${name}`, count);
+  }, [count, id]);
 
   const increment = () => {
     addProduct(product)
