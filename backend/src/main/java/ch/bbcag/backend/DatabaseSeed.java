@@ -82,28 +82,28 @@ public class DatabaseSeed implements CommandLineRunner {
         // 20 Produkte (10 Drinks + 10 Snacks)
         Object[][] productData = {
                 // DRINKS
-                {"Coca-Cola", "Coca-Cola Company", "Erfrischendes Koffein-Getränk.", "https://upload.wikimedia.org/wikipedia/commons/7/7b/Coca-Cola_bottle_background_removed.png", drinkCat},
-                {"Fanta", "Coca-Cola Company", "Orangenlimonade mit Fruchtgeschmack.", "https://upload.wikimedia.org/wikipedia/commons/f/fd/Fanta_orange_200ml_bottle.jpg", drinkCat},
-                {"Sprite", "Coca-Cola Company", "Zitronenlimonade ohne Koffein.", "https://upload.wikimedia.org/wikipedia/commons/2/27/Sprite_12oz_can.png", drinkCat},
-                {"Lipton Ice Tea", "Lipton", "Pfirsich-Eistee, eiskalt serviert.", "https://upload.wikimedia.org/wikipedia/commons/0/03/Lipton_Ice_Tea_2015.jpg", drinkCat},
-                {"Pepsi", "PepsiCo", "Erfrischendes Cola-Getränk mit Koffein.", "https://upload.wikimedia.org/wikipedia/commons/d/d3/Pepsi_can.png", drinkCat},
-                {"Red Bull", "Red Bull GmbH", "Energydrink für mehr Fokus und Energie.", "https://upload.wikimedia.org/wikipedia/commons/0/02/Red_Bull_can.png", drinkCat},
-                {"Capri-Sun", "Capri-Sun", "Fruchtiger Multivitamin-Saft im Trinkbeutel.", "https://upload.wikimedia.org/wikipedia/commons/4/4e/Capri_Sun_Multivitamin.jpg", drinkCat},
-                {"Vöslauer", "Vöslauer", "Natürliches Mineralwasser – prickelnd.", "https://upload.wikimedia.org/wikipedia/commons/3/37/Voeslauer_water.jpg", drinkCat},
-                {"Mezzo Mix", "Coca-Cola Company", "Kombination aus Cola & Orange.", "https://upload.wikimedia.org/wikipedia/commons/6/60/Mezzo_Mix_Bottle.jpg", drinkCat},
-                {"Orangina", "Suntory", "Kohlensäurehaltige Orangenlimonade mit Fruchtfleisch.", "https://upload.wikimedia.org/wikipedia/commons/f/f2/Orangina_bottle.jpg", drinkCat},
+                {"Coca-Cola", "Coca-Cola Company", "Erfrischendes Koffein-Getränk.", "https://www.woolworths.com.au/shop/productdetails/38121/coca-cola-bottle", drinkCat},
+                {"Fanta", "Coca-Cola Company", "Orangenlimonade mit Fruchtgeschmack.", "https://josannecassar.com/press-launches/fanta-launches-new-look-and-feel-with-its-spiral-bottle/", drinkCat},
+                {"Sprite", "Coca-Cola Company", "Zitronenlimonade ohne Koffein.", "https://www.walmart.com/ip/Sprite-Lemon-Lime-Soda-16-fl-oz-Can/47375589", drinkCat},
+                {"Lipton Ice Tea", "Lipton", "Pfirsich-Eistee, eiskalt serviert.", "https://www.kff.co.uk/lipton-ice-tea-lemon-bottle/p/278", drinkCat},
+                {"Pepsi", "PepsiCo", "Erfrischendes Cola-Getränk mit Koffein.", "https://www.walmart.com/ip/Pepsi-Cola-Soda-12-Fl-Oz-6-Count/17787199", drinkCat},
+                {"Red Bull", "Red Bull GmbH", "Energydrink für mehr Fokus und Energie.", "https://www.walmart.com/ip/1-Can-Red-Bull-Energy-Drink-12-Fl-Oz/12018772", drinkCat},
+                {"Capri-Sun", "Capri-Sun", "Fruchtiger Multivitamin-Saft im Trinkbeutel.", "https://www.walmart.com/ip/Capri-Sun-Strawberry-Kiwi-Juice-Box-Pouches-10-ct-Box-6-fl-oz-Pouches/10309521", drinkCat},
+                {"Vöslauer", "Vöslauer", "Natürliches Mineralwasser – prickelnd.", "https://www.amazon.de/-/en/V%C3%B6slauer-Flavour-Bottles-Including-Disposable/dp/B0CJBXQ9DQ", drinkCat},
+                {"Mezzo Mix", "Coca-Cola Company", "Kombination aus Cola & Orange.", "https://www.alamy.com/stock-photo/mezzo-mix.html", drinkCat},
+                {"Orangina", "Suntory", "Kohlensäurehaltige Orangenlimonade mit Fruchtfleisch.", "https://monsieurchatte.com/product/orangina/", drinkCat},
 
                 // SNACKS
-                {"Lay's Paprika", "Lay's", "Knusprige Paprika-Chips.", "https://upload.wikimedia.org/wikipedia/commons/3/3e/Lays_chips_Paprika_flavor.jpg", snackCat},
-                {"Pringles Original", "Pringles", "Der Klassiker unter den Stapelchips.", "https://upload.wikimedia.org/wikipedia/commons/3/39/Pringles_Can.png", snackCat},
-                {"Doritos Nacho Cheese", "Doritos", "Würzige Maischips mit Käse.", "https://upload.wikimedia.org/wikipedia/commons/e/e0/Doritos_Nacho_Cheese.jpg", snackCat},
-                {"Salted Popcorn", "Popz", "Klassisches Popcorn mit Salz.", "https://upload.wikimedia.org/wikipedia/commons/f/f1/Bowl_of_popcorn.jpg", snackCat},
-                {"Oreo Cookies", "Oreo", "Doppelkekse mit Vanillecreme.", "https://upload.wikimedia.org/wikipedia/commons/1/18/Oreo-Two-Cookies.jpg", snackCat},
-                {"Haribo Goldbären", "Haribo", "Fruchtige Gummibärchen.", "https://upload.wikimedia.org/wikipedia/commons/9/90/Haribo_Goldbears.jpg", snackCat},
-                {"Kinder Bueno", "Ferrero", "Haselnuss-Waffelriegel mit Milchcremefüllung.", "https://upload.wikimedia.org/wikipedia/commons/f/fe/Kinder_Bueno.jpg", snackCat},
-                {"Snickers", "Mars", "Erdnuss-Karamell-Schokoriegel.", "https://upload.wikimedia.org/wikipedia/commons/4/45/Snickers-broken.jpg", snackCat},
-                {"Twix", "Mars", "Keksriegel mit Karamell und Schokolade.", "https://upload.wikimedia.org/wikipedia/commons/0/0b/Twix-Pair.jpg", snackCat},
-                {"Milka Alpenmilch", "Milka", "Zarte Schokoladentafel mit Alpenmilch.", "https://upload.wikimedia.org/wikipedia/commons/4/40/Milka_Alpenmilch.jpg", snackCat},
+                {"Lay's Paprika", "Lay's", "Knusprige Paprika-Chips.", "https://drive.carrefour.be/nl/Chips-%26-aperitief/Chips/Paprika/Lay%27s-Paprika-Chips-120-gr/p/06540407", snackCat},
+                {"Pringles Original", "Pringles", "Der Klassiker unter den Stapelchips.", "https://www.walmart.com/ip/Pringles-Original-Potato-Crisps-Chips-5-2-oz-can/47217461", snackCat},
+                {"Doritos Nacho Cheese", "Doritos", "Würzige Maischips mit Käse.", "https://www.kmart.com/doritos-tortilla-chips-nacho-cheese-11.5-oz-326/p-033W003489409000P", snackCat},
+                {"Salted Popcorn", "Popz", "Klassisches Popcorn mit Salz.", "https://www.dreamstime.com/bowl-salted-popcorn-table-selective-focus-image210140697", snackCat},
+                {"Oreo Cookies", "Oreo", "Doppelkekse mit Vanillecreme.", "https://www.nepal.ubuy.com/en/product/1F8349OG-oreo-chocolate-sandwich-cookies-14-3-oz", snackCat},
+                {"Haribo Goldbären", "Haribo", "Fruchtige Gummibärchen.", "https://www.haribo.com/de-de/produkte/goldbaeren", snackCat},
+                {"Kinder Bueno", "Ferrero", "Haselnuss-Waffelriegel mit Milchcremefüllung.", "https://www.ferrero.de/produkte/kinder-bueno/", snackCat},
+                {"Snickers", "Mars", "Erdnuss-Karamell-Schokoriegel.", "https://www.snickers.com/products/snickers-bar", snackCat},
+                {"Twix", "Mars", "Keksriegel mit Karamell und Schokolade.", "https://www.twix.com/products/twix-bar", snackCat},
+                {"Milka Alpenmilch", "Milka", "Zarte Schokoladentafel mit Alpenmilch.", "https://www.milka.de/produkte/alpenmilch", snackCat},
         };
 
         for (int i = 0; i < productData.length; i++) {

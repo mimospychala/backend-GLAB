@@ -10,13 +10,12 @@ import siedeBarItems from "@/lib/data/sideBarItems";
 export default function ComponetRoute() {
     return (
         <>
-            <SideBar sideBarItems={siedeBarItems}/>
+            <SideBar sideBarItems={siedeBarItems} />
             <Button>Kasse</Button>
             <ShoppingCartCard product={product[0]} />
-            <ShoppingCartCards products={product}/>
-            <ProductCard product={product[0]}/>
-            <ProductCards products={product}/>
-
+            <ShoppingCartCards products={product} />
+            <ProductCard product={product[0]} />
+            <ProductCards products={product} />
         </>
     )
 }
