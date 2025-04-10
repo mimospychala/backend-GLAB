@@ -14,6 +14,7 @@ public class ProductMapper {
 
         productResponseDTO.setId(product.getId());
         productResponseDTO.setName(product.getName());
+        productResponseDTO.setMarke(product.getMarke());
         productResponseDTO.setDescription(product.getDescription());
         productResponseDTO.setNomNomRating(product.getNomNomRating());
         productResponseDTO.setImage(product.getImage());
