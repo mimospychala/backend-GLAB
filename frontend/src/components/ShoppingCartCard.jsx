@@ -3,27 +3,23 @@ import styles from "./ShoppingCartCard.module.css";
 import "./ShoppingCartCard.module.css";
 import { useState, useEffect } from "react";
 import Button from "./Button";
+import { useShoppingCart } from "@/lib/shoppingcart";
 
 export default function ShoppingCartCard({ product }) {
+  const [products, addProduct, removeProduct] = useShoppingCart()
+
   const { id, name, marke, volumes } = product;
 
-
-  const getInitialCount = () => {
-    const saved = localStorage.getItem(`count-${id}`);
-    return saved ? parseInt(saved) : 1;
-  };
-
-  const [count, setCount] = useState(getInitialCount);
-
-  useEffect(() => {
-    localStorage.setItem(`count-${name}`, count);
-  }, [count, id]);
+  const productInCart = products.find(p => p.id === id)
+  const count = productInCart ? productInCart.count : 0
 
   const increment = () => {
+    addProduct(product)
     setCount(prev => prev + 1);
   };
 
   const decrement = () => {
+    removeProduct(product)
     setCount(prev => (prev > 1 ? prev - 1 : 1));
   };
 
