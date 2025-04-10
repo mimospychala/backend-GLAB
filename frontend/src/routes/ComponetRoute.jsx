@@ -35,7 +35,7 @@ const product = [
         numNumRating: "5",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "0.5L", price: "1.50" },
             { volume: "1.0L", price: "2.50" }
         ]
@@ -46,7 +46,7 @@ const product = [
         marke: "Coca-Cola",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "0.5L", price: "1.40" },
             { volume: "1.0L", price: "2.40" }
         ]
@@ -57,7 +57,7 @@ const product = [
         marke: "Mars",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "50g", price: "1.20" },
             { volume: "100g", price: "2.00" }
         ]
@@ -68,7 +68,7 @@ const product = [
         marke: "Pringles",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "150g", price: "2.50" },
             { volume: "200g", price: "3.50" }
         ]
@@ -79,7 +79,7 @@ const product = [
         marke: "Coca-Cola",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "0.5L", price: "1.30" },
             { volume: "1.0L", price: "2.30" }
         ]
@@ -90,7 +90,7 @@ const product = [
         marke: "Mars",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "50g", price: "1.10" },
             { volume: "100g", price: "1.90" }
         ]
@@ -101,7 +101,7 @@ const product = [
         marke: "Mondelez",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "154g", price: "2.00" },
             { volume: "308g", price: "3.80" }
         ]
@@ -112,7 +112,7 @@ const product = [
         marke: "Lipton",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "0.5L", price: "1.60" },
             { volume: "1.5L", price: "2.80" }
         ]
@@ -123,7 +123,7 @@ const product = [
         marke: "Mars",
         altImag: "/snacks.png",
         img: "/snacks.png",
-        volumes: [
+        prices: [
             { volume: "57g", price: "100.3" },
             { volume: "114g", price: "200.2" }
         ]

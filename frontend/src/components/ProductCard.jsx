@@ -3,14 +3,14 @@ import styles from "./ProductCard.module.css"
 import "./ProductCard.module.css"
 
 export default function ProductCard({ product }) {
-    const { id, name, marke, volumes, img, altImg } = product
+    const { id, name, marke, prices, img, altImg } = product
     
     return (
         <Link to={`details/${id}`} className={styles.link}>
             <article className={styles.productCard}>
                 <h2>{name}</h2>
                 <img src={img ? img : altImg} alt={`${name}/${marke}`} />
-                <p>{`${volumes[0].price} chf`}</p>
+                <p>{`${prices[0].price} chf`}</p>
             </article>
         </Link>
     )

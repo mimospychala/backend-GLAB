@@ -1,23 +1,26 @@
-img{
+img {
     width: 500px;
 }
 
-p, h1, h2, h3{
+p,
+h1,
+h2,
+h3 {
     margin: 0;
 }
 
-.container{
+.container {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
 }
 
-.ratingMarke{
+.ratingMarke {
     display: flex;
     gap: 1rem;
 }
 
 
-.spacer{
+.spacer {
     align-self: center;
     width: 1.5px;
     height: 50px;
@@ -25,15 +28,42 @@ p, h1, h2, h3{
     border-radius: 3px;
 }
 
-.itemContainer{
-   width: 100%;
+.itemContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
     gap: 1rem;
 }
 
-.comentShare{
+.comentShare {
     display: flex;
     gap: 20px;
 }
 
+.addToCart {
+    align-self: flex-start;
+}
+
+.selectVolume {
+    background-color: white;
+    border: none;
+    align-self: flex-start;
+}
+
+.priceVolume {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.addToCartCount{
+    display: flex;
+    gap: 1rem;
+    align-content: center;
+}
+
+.selectCount{
+    border: none;
+}

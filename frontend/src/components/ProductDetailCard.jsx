@@ -35,7 +35,7 @@ export default function ProductDetailCard({ product }) {
 
                 </div>
                 <div className={styles.volumes}>
-                    {product.volumes.map((volume) => <Button>{volume.volume}<br />{volume.price} CHF</Button>)}
+                    {product.prices.map((volume) => <Button>{volume.volume}<br />{volume.price} CHF</Button>)}
                 </div>
                 <div className={styles.count}>
                     <Button onClick={decrement}>-</Button>

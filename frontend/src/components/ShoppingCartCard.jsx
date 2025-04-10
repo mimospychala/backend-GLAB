@@ -8,7 +8,10 @@ import { useShoppingCart } from "@/lib/shoppingcart";
 export default function ShoppingCartCard({ product }) {
   const [products, addProduct, removeProduct] = useShoppingCart()
 
-  const { id, name, marke, volumes } = product;
+  const { id, name, marke, prices
+
+    
+   } = product;
 
   const productInCart = products.find(p => p.id === id)
   const count = productInCart ? productInCart.count : 0
@@ -40,7 +43,7 @@ export default function ShoppingCartCard({ product }) {
         <Button className={styles.smallButton} onClick={decrement}>-</Button>
         {count}
         <Button className={styles.smallButton} onClick={increment}>+</Button>
-        <p>{calcPrice(volumes[0].price, count)} CHF</p>
+        <p>{calcPrice(prices[0].price, count)} CHF</p>
       </div>
     </article>
   );
