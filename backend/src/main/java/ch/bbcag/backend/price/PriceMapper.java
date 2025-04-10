@@ -12,6 +12,7 @@ public class PriceMapper {
 
     public static PriceResponseDTO toResponseDTO(Price price) {
         PriceResponseDTO priceResponseDTO = new PriceResponseDTO();
+        priceResponseDTO.setVolume(price.getVolume());
         priceResponseDTO.setPrice(price.getPrice());
         priceResponseDTO.setId(price.getId());
         if(price.getLinkedProducts() != null){
