@@ -5,11 +5,12 @@ import ProductCard from "@/components/ProductCard"
 import ProductCards from "@/components/ProductCards"
 import Button from "@/components/Button"
 import ShoppingCartCards from "@/components/ShoppingCartCards"
+import siedeBarItems from "@/lib/data/sideBarItems";
 
 export default function ComponetRoute() {
     return (
         <>
-            <SideBar />
+            <SideBar sideBarItems={siedeBarItems}/>
             <Button>Kasse</Button>
             <ShoppingCartCard product={product[0]} />
             <ShoppingCartCards products={product}/>
@@ -121,3 +122,4 @@ const product = [
         ]
     }
 ];
+
