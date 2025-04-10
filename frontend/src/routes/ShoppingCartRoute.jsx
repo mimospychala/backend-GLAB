@@ -2,6 +2,7 @@ import ShoppingCartCards from "@/components/ShoppingCartCards";
 import styles from "./ShoppingCartRoute.module.css"
 import ShoppingcartFooter from "@/components/ShoppingCartFooter";
 import SideBar from "@/components/SideBar";
+import sideBarItems from "@/lib/data/sideBarItems";
 
 
 export default function ShoppingCartRoute(){
@@ -9,7 +10,7 @@ export default function ShoppingCartRoute(){
     return(
         <div>
             <h3 className={styles.title}> Shoppingcart </h3>
-            <SideBar/>
+            <SideBar sideBarItems={sideBarItems}/>
             <ShoppingCartCards products={product}/>
             <ShoppingcartFooter/>
         </div>
