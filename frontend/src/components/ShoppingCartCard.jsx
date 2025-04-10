@@ -16,7 +16,7 @@ export default function ShoppingCartCard({ product }) {
   const [count, setCount] = useState(getInitialCount);
 
   useEffect(() => {
-    localStorage.setItem(`count-${id}`, count);
+    localStorage.setItem(`count-${name}`, count);
   }, [count, id]);
 
   const increment = () => {

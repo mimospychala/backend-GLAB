@@ -5,6 +5,7 @@ import App from "./App.jsx"
 import { createBrowserRouter, RouterProvider } from "react-router"
 import IndexRoute from "@/routes/IndexRoute.jsx"
 import ComponetRoute from "./routes/ComponetRoute"
+import ShoppingCartRoute from "./routes/ShoppingCartRoute"
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "componets",
         element: <ComponetRoute/>
+      },
+      {
+        path: "shoppingcart",
+        element: <ShoppingCartRoute/>
       }
     ]
   }
