@@ -3,6 +3,7 @@ import styles from "./ShoppingCartRoute.module.css"
 import ShoppingcartFooter from "@/components/ShoppingCartFooter";
 import SideBar from "@/components/SideBar";
 import sideBarItems from "@/lib/data/sideBarItems";
+import { useState } from "react";
 
 
 export default function ShoppingCartRoute(){
