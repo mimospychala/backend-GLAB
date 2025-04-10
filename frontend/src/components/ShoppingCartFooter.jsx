@@ -1,5 +1,6 @@
 import Button from "./Button";
 import styles from "./ShoppingCartFooter.module.css";
+<<<<<<< HEAD
 import { useShoppingCart } from "@/lib/shoppingcart";
 
 export default function ShoppingcartFooter({ }) {
@@ -20,6 +21,22 @@ export default function ShoppingcartFooter({ }) {
                     <p>{`${totalPrice.toFixed(2)}`} CHF</p>
                     <Button> Zur Kasse </Button>
                 </div>
+=======
+
+export default function ShoppingcartFooter({ price }) {
+
+    return (
+        <footer className={styles.footer}>
+            <div>
+                <p>Total:</p>
+                <p></p>
+            </div>
+
+
+            <div>
+                <p>19.90 CHF</p>
+                <Button> Zur Kasse </Button>
+>>>>>>> a64520b (ShoppingCartCard optimized)
             </div>
         </footer>
 
