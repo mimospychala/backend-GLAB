@@ -15,7 +15,8 @@ export default function IndexRoute() {
 <BestProductCard product={product[2]} label="Best Drink" img="/drinks.png" />
 
   </div>
-  </>
+      <ProductCard product={product[0]} />
+    </>
   )
 }
 

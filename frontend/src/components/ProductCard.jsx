@@ -21,9 +21,9 @@ export default function ProductCard({ product }) {
         }
         fetchPrice()
     }, [linkedPricesIds[0]])
-    
+
     return (
-        
+
         <>
             {price ?
                 <Link to={`/products/${id}`} className={styles.link}>
@@ -34,9 +34,8 @@ export default function ProductCard({ product }) {
                     </article>
                 </Link>
                 :
-                <div>
-                    loading...
-                </div>}
+                <div className={styles.loadingCard}></div>
+            }
 
         </>
 
