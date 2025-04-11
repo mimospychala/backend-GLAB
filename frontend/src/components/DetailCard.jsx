@@ -6,19 +6,38 @@ import ShareButton from "@/components/ShareButton";
 import styles from "./DetailCard.module.css"
 import Button from "@/components/Button";
 import LikeButton from "@/components/LikeButton";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { fetchPriceById } from "@/lib/prices.API";
+
+async function loadPrice(id) {
+    return await fetchPriceById(id)
+}
 
 export default function DetailCard({ product }) {
-    const [price, setPrice] = useState(product.prices[0].price);
+    const [prices, setPrice] = useState(null);
     const [count, setCount] = useState(1)
-    
-    function calcPrice(price, count){
+
+    function calcPrice(price, count) {
         let result = price * count
         return result.toFixed(2)
     }
 
+    useEffect(() => {
+        const fetchPrice = async () => {
+            const prices = await Promise.all(
+                product.linkedPricesIds.map((priceId) => loadPrice(priceId))
+            );
+            setPrice(prices);
+            console.log(prices)
+        };
+
+        fetchPrice();
+    }, [product.linkedPricesIds]);
+
+
     return (
         <>
+            {prices ? (<>
             <div className={styles.container}>
                 <img src={product.img} alt="Produkt image" />
                 <div className={styles.itemContainer}>
@@ -26,9 +45,9 @@ export default function DetailCard({ product }) {
                         <h2>{product.name}</h2>
                     </div>
                     <div className={styles.priceVolume}>
-                        <h3>{`${calcPrice(price, count)} CHF`}</h3>
+                        <h3>{`${calcPrice(prices[0].price, count)} CHF`}</h3>
                         <select className={styles.selectVolume} name="Volume" id="volume" onChange={(e) => setPrice(e.target.value)}>
-                            {product.prices.map((price) =>
+                            {prices.map((price) =>
                                 <option value={price.price}>{`${price.volume}`}</option>
                             )}
                         </select>
@@ -69,6 +88,8 @@ export default function DetailCard({ product }) {
                     {product.description}
                 </p>
             </div>
+            </>
+            ) : <div>loading...</div>}
         </>
     )
 }

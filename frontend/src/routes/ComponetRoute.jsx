@@ -9,7 +9,7 @@ import siedeBarItems from "@/lib/data/sideBarItems";
 import ShareButton from "@/components/ShareButton"
 import ProductDetailCard from "@/components/ProductDetailCard"
 import DetailRoute from "./DetailsRoute"
-import ShoppingCartCards from "@/components/ShoppingCartCards"
+import sideBarItems from "@/lib/data/sideBarItems"
 
 export default function ComponetRoute() {
     return (
@@ -19,18 +19,10 @@ export default function ComponetRoute() {
             <Button>Kasse</Button>
             <ShoppingCartCard product={product[0]} />
             <ShoppingCartCards products={product}/>
-            <ProductCard product={product[0]}/>
-            <ProductCards products={product}/>
             <ShareButton/>
             <ProductDetailCard product={product[0]}/>
             <DetailRoute product={product[0]}/>
 
-            <SideBar sideBarItems={siedeBarItems} />
-            <Button>Kasse</Button>
-            <ShoppingCartCard product={product[0]} />
-            <ShoppingCartCards products={product} />
-            <ProductCard product={product[0]} />
-            <ProductCards products={product} />
         </>
     )
 }

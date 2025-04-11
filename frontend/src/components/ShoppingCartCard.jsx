@@ -8,16 +8,10 @@ import { useShoppingCart } from "@/lib/shoppingcart";
 export default function ShoppingCartCard({ product }) {
   const [products, addProduct, removeProduct] = useShoppingCart()
 
-  const { id, name, marke, prices
+  const { id, name, marke, prices } = product;
 
-    
-   } = product;
-
-  const [count, setCount] = useState(getInitialCount);
-
-  useEffect(() => {
-    localStorage.setItem(`count-${name}`, count);
-  }, [count, id]);
+  const productInCart = products.find(p => p.id === id)
+  const count = productInCart ? productInCart.count : 0
 
   const increment = () => {
     addProduct(product)
@@ -51,3 +45,4 @@ export default function ShoppingCartCard({ product }) {
     </article>
   );
 }
+ 
