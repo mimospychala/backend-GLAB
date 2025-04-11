@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import IndexRoute from "@/routes/IndexRoute.jsx"
 import ComponetRoute from "./routes/ComponetRoute"
 import ShoppingCartRoute from "./routes/ShoppingCartRoute"
+import DetailCard from "./components/DetailCard"
+import DetailRoute from "./routes/DetailsRoute"
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,11 @@ const router = createBrowserRouter([
       {
         path: "shoppingcart",
         element: <ShoppingCartRoute/>
+      },
+      {
+        path: "products/:id",
+        element: <DetailRoute/>,
+        loader: DetailRoute.loader
       }
     ]
   }

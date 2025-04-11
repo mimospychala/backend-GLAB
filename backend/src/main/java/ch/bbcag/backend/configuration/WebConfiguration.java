@@ -2,6 +2,8 @@ package ch.bbcag.backend.configuration;
 
 
 import ch.bbcag.backend.account.AccountConverter;
+import ch.bbcag.backend.price.PriceController;
+import ch.bbcag.backend.product.ProductController;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
@@ -67,7 +69,8 @@ public class WebConfiguration {
                     authorizeRequests
                             .requestMatchers(appConfiguration.getAllowedUrls()).permitAll()
                             .requestMatchers(HttpMethod.POST, appConfiguration.getAuthUrls()).permitAll()
-                            //.requestMatchers(HttpMethod.GET, PostController.PATH + "/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, ProductController.PATH + "/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, PriceController.PATH + "/**").permitAll()
                             .anyRequest()
                             .authenticated();
                 });
