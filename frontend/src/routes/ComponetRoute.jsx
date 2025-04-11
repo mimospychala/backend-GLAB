@@ -10,6 +10,8 @@ import ShareButton from "@/components/ShareButton"
 import ProductDetailCard from "@/components/ProductDetailCard"
 import DetailRoute from "./DetailsRoute"
 import sideBarItems from "@/lib/data/sideBarItems"
+import Comment from "@/components/comment"
+import Comments from "@/components/comments"
 
 export default function ComponetRoute() {
     return (
@@ -21,7 +23,8 @@ export default function ComponetRoute() {
             <ShoppingCartCards products={product}/>
             <ShareButton/>
             <ProductDetailCard product={product[0]}/>
-            
+            <Comment id={4}/>
+            <Comments id={1}/>
 
         </>
     )
