@@ -37,31 +37,28 @@ export default function DetailCard({ product }) {
 
     function handleAddToCart() {
         const selectedPriceObj = prices.find(p => p.price == price);
-    
+
         const newItem = {
             id: product.id,
-            name: product.name,
-            image: product.image,
-            price: parseFloat(price),
             volume: selectedPriceObj?.volume || "",
             count: parseInt(count),
         };
-    
-        const cart = JSON.parse(localStorage.getItem("productCart")) || [];
-    
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
         const existingItem = cart.find((item) => item.id === newItem.id && item.volume === newItem.volume);
-    
+
         if (existingItem) {
             existingItem.count += newItem.count;
         } else {
             cart.push(newItem);
         }
-    
-        localStorage.setItem("productCart", JSON.stringify(cart));
-        alert("Zum Warenkorb hinzugefügt!");
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
     }
-    
-    
+
+
     return (
         <>
             {prices ? (
@@ -75,20 +72,20 @@ export default function DetailCard({ product }) {
                             <div className={styles.priceVolume}>
                                 <h3>{`${calcPrice(price, count)} CHF`}</h3>
                                 <select
-    className={styles.selectVolume}
-    name="Volume"
-    id="volume"
-    onChange={(e) => {
-        const selectedObj = JSON.parse(e.target.value);
-        setPrice(selectedObj.price);
-    }}
->
-    {prices.map((priceObj) => (
-        <option key={priceObj.volume} value={JSON.stringify(priceObj)}>
-            {priceObj.volume}
-        </option>
-    ))}
-</select>
+                                    className={styles.selectVolume}
+                                    name="Volume"
+                                    id="volume"
+                                    onChange={(e) => {
+                                        const selectedObj = JSON.parse(e.target.value);
+                                        setPrice(selectedObj.price);
+                                    }}
+                                >
+                                    {prices.map((priceObj) => (
+                                        <option key={priceObj.volume} value={JSON.stringify(priceObj)}>
+                                            {priceObj.volume}
+                                        </option>
+                                    ))}
+                                </select>
 
                             </div>
                             <div className={styles.ratingMarke}>
