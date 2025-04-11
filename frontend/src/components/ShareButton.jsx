@@ -1,7 +1,5 @@
 import React from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShareAlt } from "@fortawesome/free-solid-svg-icons";
 import { Share2 } from "lucide-react";
 import Button from "./Button";
 
