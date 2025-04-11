@@ -7,14 +7,28 @@
 .productCard {
     display: flex;
     flex-direction: column;
+    height: 380px;
+    img{
+        width: 150px !important;
+        max-width: 100%;
+        height: auto; 
+    }
+
+    
     
     h2,
     img,
     p {
-        margin-bottom: 1rem;
+        margin: 0;
         text-decoration: none;
         color: inherit;
+        font-weight: bold;
     }
+
+    
+    
+
+    
 
 }
 

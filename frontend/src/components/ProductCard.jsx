@@ -10,10 +10,7 @@ async function loadPrice(id) {
 }
 
 export default function ProductCard({ product }) {
-    console.log(product)
     const { id, name, marke, linkedPricesIds, image, altImg } = product
-    console.log(image)
-    console.log(marke)
     const [price, setPrice] = useState(null)
 
     useEffect(() => {
@@ -24,16 +21,16 @@ export default function ProductCard({ product }) {
         }
         fetchPrice()
     }, [linkedPricesIds[0]])
-
+    
     return (
-
+        
         <>
             {price ?
                 <Link to={`details/${id}`} className={styles.link}>
                     <article className={styles.productCard}>
                         <h2>{name}</h2>
                         <img src={image ? image : altImg} alt={`${name}/${marke}`} />
-                        <p>{`${price.price} chf`}</p>
+                        <p>{`${price.price.toFixed(2)} chf`}</p>
                     </article>
                 </Link>
                 :

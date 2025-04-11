@@ -82,28 +82,28 @@ public class DatabaseSeed implements CommandLineRunner {
         // 20 Produkte (10 Drinks + 10 Snacks)
         Object[][] productData = {
                 // DRINKS
-                {"Coca-Cola", "Coca-Cola Company", "Erfrischendes Koffein-Getränk.", "https://www.woolworths.com.au/shop/productdetails/38121/coca-cola-bottle", drinkCat},
-                {"Fanta", "Coca-Cola Company", "Orangenlimonade mit Fruchtgeschmack.", "https://josannecassar.com/press-launches/fanta-launches-new-look-and-feel-with-its-spiral-bottle/", drinkCat},
-                {"Sprite", "Coca-Cola Company", "Zitronenlimonade ohne Koffein.", "https://www.walmart.com/ip/Sprite-Lemon-Lime-Soda-16-fl-oz-Can/47375589", drinkCat},
-                {"Lipton Ice Tea", "Lipton", "Pfirsich-Eistee, eiskalt serviert.", "https://www.kff.co.uk/lipton-ice-tea-lemon-bottle/p/278", drinkCat},
-                {"Pepsi", "PepsiCo", "Erfrischendes Cola-Getränk mit Koffein.", "https://www.walmart.com/ip/Pepsi-Cola-Soda-12-Fl-Oz-6-Count/17787199", drinkCat},
-                {"Red Bull", "Red Bull GmbH", "Energydrink für mehr Fokus und Energie.", "https://www.walmart.com/ip/1-Can-Red-Bull-Energy-Drink-12-Fl-Oz/12018772", drinkCat},
-                {"Capri-Sun", "Capri-Sun", "Fruchtiger Multivitamin-Saft im Trinkbeutel.", "https://www.walmart.com/ip/Capri-Sun-Strawberry-Kiwi-Juice-Box-Pouches-10-ct-Box-6-fl-oz-Pouches/10309521", drinkCat},
-                {"Vöslauer", "Vöslauer", "Natürliches Mineralwasser – prickelnd.", "https://www.amazon.de/-/en/V%C3%B6slauer-Flavour-Bottles-Including-Disposable/dp/B0CJBXQ9DQ", drinkCat},
-                {"Mezzo Mix", "Coca-Cola Company", "Kombination aus Cola & Orange.", "https://www.alamy.com/stock-photo/mezzo-mix.html", drinkCat},
-                {"Orangina", "Suntory", "Kohlensäurehaltige Orangenlimonade mit Fruchtfleisch.", "https://monsieurchatte.com/product/orangina/", drinkCat},
+                {"Coca-Cola", "Coca-Cola Company", "Erfrischendes Koffein-Getränk.", "/cocacola-removebg-preview.png", drinkCat},
+                {"Fanta", "Coca-Cola Company", "Orangenlimonade mit Fruchtgeschmack.", "/fanta-removebg-preview.png", drinkCat},
+                {"Sprite", "Coca-Cola Company", "Zitronenlimonade ohne Koffein.", "/sprite-removebg-preview.png", drinkCat},
+                {"Lipton Ice Tea", "Lipton", "Pfirsich-Eistee, eiskalt serviert.", "/lipton-removebg-preview.png", drinkCat},
+                {"Pepsi", "PepsiCo", "Erfrischendes Cola-Getränk mit Koffein.", "/pepsi-removebg-preview.png", drinkCat},
+                {"Red Bull", "Red Bull GmbH", "Energydrink für mehr Fokus und Energie.", "/redbull-removebg-preview.png", drinkCat},
+                {"Capri-Sun", "Capri-Sun", "Fruchtiger Multivitamin-Saft im Trinkbeutel.", "/caprisun-removebg-preview.png", drinkCat},
+                {"Vöslauer", "Vöslauer", "Natürliches Mineralwasser – prickelnd.", "/voeslauer-removebg-preview.png", drinkCat},
+                {"Mezzo Mix", "Coca-Cola Company", "Kombination aus Cola & Orange.", "/mezzomix-removebg-preview.png", drinkCat},
+                {"Orangina", "Suntory", "Kohlensäurehaltige Orangenlimonade mit Fruchtfleisch.", "/orangina-removebg-preview.png", drinkCat},
 
                 // SNACKS
-                {"Lay's Paprika", "Lay's", "Knusprige Paprika-Chips.", "https://drive.carrefour.be/nl/Chips-%26-aperitief/Chips/Paprika/Lay%27s-Paprika-Chips-120-gr/p/06540407", snackCat},
-                {"Pringles Original", "Pringles", "Der Klassiker unter den Stapelchips.", "https://www.walmart.com/ip/Pringles-Original-Potato-Crisps-Chips-5-2-oz-can/47217461", snackCat},
-                {"Doritos Nacho Cheese", "Doritos", "Würzige Maischips mit Käse.", "https://www.kmart.com/doritos-tortilla-chips-nacho-cheese-11.5-oz-326/p-033W003489409000P", snackCat},
-                {"Salted Popcorn", "Popz", "Klassisches Popcorn mit Salz.", "https://www.dreamstime.com/bowl-salted-popcorn-table-selective-focus-image210140697", snackCat},
-                {"Oreo Cookies", "Oreo", "Doppelkekse mit Vanillecreme.", "https://www.nepal.ubuy.com/en/product/1F8349OG-oreo-chocolate-sandwich-cookies-14-3-oz", snackCat},
-                {"Haribo Goldbären", "Haribo", "Fruchtige Gummibärchen.", "https://www.haribo.com/de-de/produkte/goldbaeren", snackCat},
-                {"Kinder Bueno", "Ferrero", "Haselnuss-Waffelriegel mit Milchcremefüllung.", "https://www.ferrero.de/produkte/kinder-bueno/", snackCat},
-                {"Snickers", "Mars", "Erdnuss-Karamell-Schokoriegel.", "https://www.snickers.com/products/snickers-bar", snackCat},
-                {"Twix", "Mars", "Keksriegel mit Karamell und Schokolade.", "https://www.twix.com/products/twix-bar", snackCat},
-                {"Milka Alpenmilch", "Milka", "Zarte Schokoladentafel mit Alpenmilch.", "https://www.milka.de/produkte/alpenmilch", snackCat},
+                {"Lay's Paprika", "Lay's", "Knusprige Paprika-Chips.", "/layspaprika-removebg-preview.png", snackCat},
+                {"Pringles Original", "Pringles", "Der Klassiker unter den Stapelchips.", "/pringlesoriginal-removebg-preview.png", snackCat},
+                {"Doritos Nacho Cheese", "Doritos", "Würzige Maischips mit Käse.", "/nachocheese-removebg-preview.png", snackCat},
+                {"Salted Popcorn", "Popz", "Klassisches Popcorn mit Salz.", "/popz-removebg-preview.png", snackCat},
+                {"Oreo Cookies", "Oreo", "Doppelkekse mit Vanillecreme.", "/oreo-removebg-preview.png", snackCat},
+                {"Haribo Goldbären", "Haribo", "Fruchtige Gummibärchen.", "/haribo-removebg-preview.png", snackCat},
+                {"Kinder Bueno", "Ferrero", "Haselnuss-Waffelriegel mit Milchcremefüllung.", "/kinderbueno-removebg-preview.png", snackCat},
+                {"Snickers", "Mars", "Erdnuss-Karamell-Schokoriegel.", "/snickers-removebg-preview.png", snackCat},
+                {"Twix", "Mars", "Keksriegel mit Karamell und Schokolade.", "/twix-removebg-preview.png", snackCat},
+                {"Milka Alpenmilch", "Milka", "Zarte Schokoladentafel mit Alpenmilch.", "/milka-removebg-preview.png", snackCat},
         };
 
         for (int i = 0; i < productData.length; i++) {
