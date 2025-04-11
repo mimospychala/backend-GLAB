@@ -23,7 +23,7 @@ export default function DetailCard({ product }) {
             const fetchPrices = await Promise.all(
                 product.linkedPricesIds.map((priceId) => loadPrice(priceId))
             );
-            setPrices(fetchPrices);
+             setPrices(fetchPrices); 
             setPrice(fetchPrices[0].price);
         };
 
@@ -124,9 +124,28 @@ export default function DetailCard({ product }) {
                         <p>{product.description}</p>
                     </div>
                 </>
-            ) : (
-                <div>loading...</div>
-            )}
-        </>
-    );
-}
+         ) : (
+            <div className={styles.container}>
+    <div className={styles.imageLoading}></div>
+    <div className={styles.itemContainer}>
+        <div className={`${styles.priceVolume} ${styles.priceVolumeLoading}`}></div>
+
+        <div className={styles.ratingMarke}>
+            <div className={styles.ratingLoading}></div>
+            <div className={styles.spacer}></div>
+            <div className={styles.brandLoading}></div>
+        </div>
+
+        <div className={styles.comentShare}>
+            <div className={styles.likeButtonLoading}></div>
+            <div className={styles.commentButtonLoading}></div>
+            <div className={styles.shareButtonLoading}></div>
+        </div>
+
+        <div className={`${styles.addToCart} ${styles.addToCartLoading}`}></div>
+    </div>
+</div>
+
+        )}
+    </>
+);}

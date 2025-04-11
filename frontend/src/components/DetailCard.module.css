@@ -41,9 +41,25 @@ h3 {
     gap: 20px;
 }
 
+.comentShareLoading {
+    background: grey;
+    height: 50px; 
+    width: 60px; 
+    border-radius: 8px;
+}
+
+
 .addToCart {
     align-self: flex-start;
 }
+
+.addToCartLoading{
+    background: grey;
+    height: 50px; 
+    width: 90px; 
+    border-radius: 8px;
+}
+
 
 .selectVolume {
     background-color: white;
@@ -58,6 +74,13 @@ h3 {
     align-items: center;
 }
 
+.priceVolumeLoading{
+    background: grey;
+    height: 35px; 
+    width: 220px; 
+    border-radius: 8px;
+}
+
 .addToCartCount{
     display: flex;
     gap: 1rem;
@@ -66,4 +89,42 @@ h3 {
 
 .selectCount{
     border: none;
+}
+
+.imageLoading {
+    background: grey;
+    height: 500px; 
+    width: 800px;
+    border-radius: 8px;
+}
+
+
+.likeButtonLoading,
+.commentButtonLoading,
+.shareButtonLoading {
+    background: grey;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.ratingLoading {
+    background: grey;
+    height: 40px;
+    width: 100px;
+    border-radius: 6px;
+}
+
+.brandLoading {
+    background: grey;
+    height: 40px;
+    width: 80px;
+    border-radius: 6px;
+}
+
+.shareButtonLoading {
+    background: grey;
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
 }
