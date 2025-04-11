@@ -21,7 +21,7 @@ export default function ComponetRoute() {
             <ShoppingCartCards products={product}/>
             <ShareButton/>
             <ProductDetailCard product={product[0]}/>
-            <DetailRoute product={product[0]}/>
+            
 
         </>
     )
