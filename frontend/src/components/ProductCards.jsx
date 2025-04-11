@@ -5,7 +5,7 @@ export default function ProductCards({products}){
     return(
         <>
             <div className={styles.parent}>
-                {products.map((product => <ProductCard product={product}/>))}
+                {products.map((product => <ProductCard key={product.id} product={product}/>))}
             </div>
             
         </>

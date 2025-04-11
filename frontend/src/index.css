@@ -66,13 +66,6 @@ a:not([class]) {
 }
 
 /* Make images easier to work with */
-img,
-picture {
-  /* Bbc */
-  width: 100%;
-  display: block;
-  height: auto;
-}
 
 /* Inherit fonts for inputs and buttons */
 input, button,
