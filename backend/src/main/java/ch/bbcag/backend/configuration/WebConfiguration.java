@@ -2,7 +2,11 @@ package ch.bbcag.backend.configuration;
 
 
 import ch.bbcag.backend.account.AccountConverter;
+<<<<<<< HEAD
 import ch.bbcag.backend.combo.ComboController;
+=======
+import ch.bbcag.backend.comment.CommentController;
+>>>>>>> 10b1ea1 (Implemented coment into DetailsView)
 import ch.bbcag.backend.price.PriceController;
 import ch.bbcag.backend.product.ProductController;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
@@ -73,6 +77,7 @@ public class WebConfiguration {
                             .requestMatchers(HttpMethod.GET, ProductController.PATH + "/**").permitAll()
                             .requestMatchers(HttpMethod.GET, PriceController.PATH + "/**").permitAll()
                             .requestMatchers(HttpMethod.GET, ComboController.PATH + "/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, CommentController.PATH + "/**").permitAll()
                             .anyRequest()
                             .authenticated();
                 });

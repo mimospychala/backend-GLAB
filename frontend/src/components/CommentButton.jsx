@@ -1,9 +1,9 @@
 import Button from "./Button";
 import { MessageCircle } from "lucide-react";
 
-export default function CommentButton(){
+export default function CommentButton({func ,...props}){
     return (
-        <Button>
+        <Button func={func}>
             <MessageCircle/>
         </Button>
     )

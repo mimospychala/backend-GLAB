@@ -9,7 +9,6 @@ async function loader({params}) {
 
 export default function DetailRoute() {
     const product = useLoaderData()
-    console.log(product)
     return (
         <>
             <DetailCard product={product}/>
