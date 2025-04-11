@@ -59,6 +59,33 @@ export default function DetailCard({ product }) {
     }
 
 
+    function handleAddToCart() {
+        const selectedPriceObj = prices.find(p => p.price == price);
+    
+        const newItem = {
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: parseFloat(price),
+            volume: selectedPriceObj?.volume || "",
+            count: parseInt(count),
+        };
+    
+        const cart = JSON.parse(localStorage.getItem("productCart")) || [];
+    
+        const existingItem = cart.find((item) => item.id === newItem.id && item.volume === newItem.volume);
+    
+        if (existingItem) {
+            existingItem.count += newItem.count;
+        } else {
+            cart.push(newItem);
+        }
+    
+        localStorage.setItem("productCart", JSON.stringify(cart));
+        alert("Zum Warenkorb hinzugefügt!");
+    }
+    
+    
     return (
         <>
             {prices ? (
