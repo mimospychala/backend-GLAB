@@ -9,7 +9,6 @@ export default function SideBar({ sideBarItems }) {
     return (
         <>
             <div className={styles.sideBar}>
-                <h2>Side Bar</h2>
                 {sideBarItems.map((item) => <SideBarItem title={item.name} items={item.children} />)}
             </div>
         </>
