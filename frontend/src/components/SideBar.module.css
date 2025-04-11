@@ -1,5 +1,14 @@
-.sideBar{
-    width: 400px;
+.sideBar {
+    width: 270px;
     padding: 1rem;
-    background-color: #E37C24;   
+    background-color: wheat;
+    margin-top: 106px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    color: black;
+    overflow-y: auto;
+    padding: 20px;
+    border-right: 2px solid black;
 }

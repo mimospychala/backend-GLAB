@@ -1,6 +1,6 @@
 .logo{
     width: 80px;
-    height: auto
+    height: 80px;
 }
 
 .header{
@@ -8,5 +8,14 @@
     justify-content:  center;
     padding: 0.75rem;
     background-color: #E37C24;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.filler{
+    width: 270px;
+    height: 100%;
 }
 
