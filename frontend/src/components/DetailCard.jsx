@@ -15,13 +15,8 @@ async function loadPrice(id) {
 
 export default function DetailCard({ product }) {
     const [prices, setPrices] = useState(null);
-    const [price, setPrice] = useState(null)
-    const [count, setCount] = useState(1)
-
-    function calcPrice(price, count) {
-        let result = price * count
-        return result.toFixed(2)
-    }
+    const [price, setPrice] = useState(null);
+    const [count, setCount] = useState(1);
 
     useEffect(() => {
         const fetchPrice = async () => {
@@ -29,68 +24,112 @@ export default function DetailCard({ product }) {
                 product.linkedPricesIds.map((priceId) => loadPrice(priceId))
             );
             setPrices(fetchPrices);
-            setPrice(fetchPrices[0].price)
+            setPrice(fetchPrices[0].price);
         };
 
         fetchPrice();
     }, [product.linkedPricesIds]);
 
+    function calcPrice(price, count) {
+        let result = price * count;
+        return result.toFixed(2);
+    }
 
+    function handleAddToCart() {
+        const selectedPriceObj = prices.find(p => p.price == price);
+    
+        const newItem = {
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            price: parseFloat(price),
+            volume: selectedPriceObj?.volume || "",
+            count: parseInt(count),
+        };
+    
+        const cart = JSON.parse(localStorage.getItem("productCart")) || [];
+    
+        const existingItem = cart.find((item) => item.id === newItem.id && item.volume === newItem.volume);
+    
+        if (existingItem) {
+            existingItem.count += newItem.count;
+        } else {
+            cart.push(newItem);
+        }
+    
+        localStorage.setItem("productCart", JSON.stringify(cart));
+        alert("Zum Warenkorb hinzugefügt!");
+    }
+    
+    
     return (
         <>
-            {prices ? (<>
-            <div className={styles.container}>
-                <img src={product.image} alt="Produkt image" />
-                <div className={styles.itemContainer}>
-                    <div>
-                        <h2>{product.name}</h2>
-                    </div>
-                    <div className={styles.priceVolume}>
-                        <h3>{`${calcPrice(price, count)} CHF`}</h3>
-                        <select className={styles.selectVolume} name="Volume" id="volume" onChange={(e) => setPrice(e.target.value)}>
-                            {prices.map((price) =>
-                                <option value={price.price}>{`${price.volume}`}</option>
-                            )}
-                        </select>
-                    </div>
-                    <div className={styles.ratingMarke}>
-                        <NumNumRating rating={product.nomNomRating} />
-                        <div className={styles.spacer}></div>
-                        <div>
-                            <p>Marke:</p>
-                            <h3>{product.marke}</h3>
+            {prices ? (
+                <>
+                    <div className={styles.container}>
+                        <img src={product.image} alt="Produkt image" />
+                        <div className={styles.itemContainer}>
+                            <div>
+                                <h2>{product.name}</h2>
+                            </div>
+                            <div className={styles.priceVolume}>
+                                <h3>{`${calcPrice(price, count)} CHF`}</h3>
+                                <select
+    className={styles.selectVolume}
+    name="Volume"
+    id="volume"
+    onChange={(e) => {
+        const selectedObj = JSON.parse(e.target.value);
+        setPrice(selectedObj.price);
+    }}
+>
+    {prices.map((priceObj) => (
+        <option key={priceObj.volume} value={JSON.stringify(priceObj)}>
+            {priceObj.volume}
+        </option>
+    ))}
+</select>
+
+                            </div>
+                            <div className={styles.ratingMarke}>
+                                <NumNumRating rating={product.nomNomRating} />
+                                <div className={styles.spacer}></div>
+                                <div>
+                                    <p>Marke:</p>
+                                    <h3>{product.marke}</h3>
+                                </div>
+                            </div>
+                            <div className={styles.comentShare}>
+                                <LikeButton />
+                                <CommentButton />
+                                <ShareButton />
+                            </div>
+                            <div className={styles.addToCartCount}>
+                                <Button className={styles.addToCart} onClick={handleAddToCart}>
+                                    Add to cart
+                                </Button>
+                                <select
+                                    className={styles.selectCount}
+                                    name="count"
+                                    id="count"
+                                    onChange={(e) => setCount(e.target.value)}
+                                >
+                                    {[...Array(5)].map((_, i) => (
+                                        <option key={i + 1} value={i + 1}>
+                                            {i + 1}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div className={styles.comentShare}>
-                        <LikeButton />
-                        <CommentButton />
-                        <ShareButton />
+                    <div>
+                        <p>{product.description}</p>
                     </div>
-                    <div className={styles.addToCartCount}>
-                        <Button className={styles.addToCart}>Add to cart </Button>
-                        <select
-                            className={styles.selectCount}
-                            name="count"
-                            id="count"
-                            onChange={(e) => setCount(e.target.value)}
-                        >
-                            {[...Array(5)].map((_, i) => (
-                                <option key={i + 1} value={i + 1}>
-                                    {i + 1}
-                                </option>
-                            ))}
-
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <p>
-                    {product.description}
-                </p>
-            </div>
-            </>
-            ) : <div>loading...</div>}
+                </>
+            ) : (
+                <div>loading...</div>
+            )}
         </>
-    )
+    );
 }
