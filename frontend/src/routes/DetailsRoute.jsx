@@ -12,6 +12,11 @@ import { useState } from "react";
 export default function DetailRoute({ product }) {
     const [price, setPrice] = useState(product.prices[0].price);
     const [count, setCount] = useState(1)
+    
+    function calcPrice(price, count){
+        let result = price * count
+        return result.toFixed(2)
+    }
 
     return (
         <>
@@ -22,7 +27,7 @@ export default function DetailRoute({ product }) {
                         <h2>{product.name}</h2>
                     </div>
                     <div className={styles.priceVolume}>
-                        <h3>{`${price * count} CHF`}</h3>
+                        <h3>{`${calcPrice(price, count)} CHF`}</h3>
                         <select className={styles.selectVolume} name="Volume" id="volume" onChange={(e) => setPrice(e.target.value)}>
                             {product.prices.map((price) =>
                                 <option value={price.price}>{`${price.volume}`}</option>
@@ -59,6 +64,11 @@ export default function DetailRoute({ product }) {
                         </select>
                     </div>
                 </div>
+            </div>
+            <div>
+                <p>
+                    {product.description}
+                </p>
             </div>
         </>
     )
