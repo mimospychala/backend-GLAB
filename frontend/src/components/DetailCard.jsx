@@ -14,7 +14,8 @@ async function loadPrice(id) {
 }
 
 export default function DetailCard({ product }) {
-    const [prices, setPrice] = useState(null);
+    const [prices, setPrices] = useState(null);
+    const [price, setPrice] = useState(null)
     const [count, setCount] = useState(1)
 
     function calcPrice(price, count) {
@@ -24,11 +25,11 @@ export default function DetailCard({ product }) {
 
     useEffect(() => {
         const fetchPrice = async () => {
-            const prices = await Promise.all(
+            const fetchPrices = await Promise.all(
                 product.linkedPricesIds.map((priceId) => loadPrice(priceId))
             );
-            setPrice(prices);
-            console.log(prices)
+            setPrices(fetchPrices);
+            setPrice(fetchPrices[0].price)
         };
 
         fetchPrice();
@@ -39,13 +40,13 @@ export default function DetailCard({ product }) {
         <>
             {prices ? (<>
             <div className={styles.container}>
-                <img src={product.img} alt="Produkt image" />
+                <img src={product.image} alt="Produkt image" />
                 <div className={styles.itemContainer}>
                     <div>
                         <h2>{product.name}</h2>
                     </div>
                     <div className={styles.priceVolume}>
-                        <h3>{`${calcPrice(prices[0].price, count)} CHF`}</h3>
+                        <h3>{`${calcPrice(price, count)} CHF`}</h3>
                         <select className={styles.selectVolume} name="Volume" id="volume" onChange={(e) => setPrice(e.target.value)}>
                             {prices.map((price) =>
                                 <option value={price.price}>{`${price.volume}`}</option>
@@ -53,7 +54,7 @@ export default function DetailCard({ product }) {
                         </select>
                     </div>
                     <div className={styles.ratingMarke}>
-                        <NumNumRating rating={product.numNumRating} />
+                        <NumNumRating rating={product.nomNomRating} />
                         <div className={styles.spacer}></div>
                         <div>
                             <p>Marke:</p>
