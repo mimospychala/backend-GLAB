@@ -26,7 +26,7 @@ export default function ProductCard({ product }) {
         
         <>
             {price ?
-                <Link to={`details/${id}`} className={styles.link}>
+                <Link to={`/products/${id}`} className={styles.link}>
                     <article className={styles.productCard}>
                         <h2>{name}</h2>
                         <img src={image ? image : altImg} alt={`${name}/${marke}`} />

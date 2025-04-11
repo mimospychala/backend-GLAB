@@ -6,16 +6,18 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import IndexRoute from "@/routes/IndexRoute.jsx"
 import ComponetRoute from "./routes/ComponetRoute"
 import ShoppingCartRoute from "./routes/ShoppingCartRoute"
+import DetailCard from "./components/DetailCard"
+import DetailRoute from "./routes/DetailsRoute"
 import ListRoute from "./routes/ListRoute"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
     children: [
       {
         index: true,
-        element: <IndexRoute/>
+        element: <IndexRoute />
       },
       {
         path: "componets",
@@ -24,9 +26,15 @@ const router = createBrowserRouter([
       {
         path: "shoppingcart",
         element: <ShoppingCartRoute/>
-      },{
+      },
+      {
+        path: "products/:id",
+        element: <DetailRoute />,
+        loader: DetailRoute.loader
+      },
+      {
         path: "products",
-        element: <ListRoute/>,
+        element: <ListRoute />,
         loader: ListRoute.loader
       },
 
@@ -35,9 +43,9 @@ const router = createBrowserRouter([
 ])
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
-      <RouterProvider router={router}/>
-    </StrictMode>
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
 )
 
 
