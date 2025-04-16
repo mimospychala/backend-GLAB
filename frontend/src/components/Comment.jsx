@@ -28,10 +28,10 @@ export default function Comment({ id }) {
                     <div className={style.profilImg}>
                         <p>{comment.account.username.charAt(0).toUpperCase()}</p>
                     </div>
-                    <div>
+                    <div style={{display: "flex", flexDirection: "column", flex: "1"}}>
                         <p className={style.content} >{comment.text}</p>
+
                         <div className={style.buttonRight}>
-                           
                             <div className={style.likesButtons}>
                                 <button className={style.likeButton}><ThumbsUp /><p>{comment.likes}</p></button>
                                 <button className={style.likeButton} ><ThumbsDown /></button>

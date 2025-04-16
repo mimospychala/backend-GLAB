@@ -1,8 +1,6 @@
 .comment{
     display: flex;
-    
     gap: 1rem;
-    border: 2px dashed red;
 }
 
 .likesButtons{
@@ -21,7 +19,7 @@
 
 .buttonRight{
     display: flex;
-    justify-content: space-between;   
+    justify-content: flex-end;   
 }
 
 .profilImg{
@@ -40,6 +38,5 @@
 .content{
     font-weight: 400;
     font-size: 1rem;
-    border: 2px dashed red;
-    width: 100%;
+    
 }
