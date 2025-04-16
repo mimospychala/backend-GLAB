@@ -9,6 +9,8 @@ import ShoppingCartRoute from "./routes/ShoppingCartRoute"
 import DetailCard from "./components/DetailCard"
 import DetailRoute from "./routes/DetailsRoute"
 import ListRoute from "./routes/ListRoute"
+import SignUpRoute from "./routes/SignUpRoute"
+import SignInRoute from "./routes/SignInRoute"
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,16 @@ const router = createBrowserRouter([
         element: <ListRoute />,
         loader: ListRoute.loader
       },
+      {
+          path: "/auth/signin",
+          element: <SignInRoute />,
+          action: SignInRoute.action,
+      },
+      {
+          path: "/auth/signup",
+          element: <SignUpRoute />,
+          action: SignUpRoute.action,
+      }
 
     ]
   }
