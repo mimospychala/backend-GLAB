@@ -1,4 +1,45 @@
-.likesButton{
+.comment{
+    display: flex;
+    
+    gap: 1rem;
+    border: 2px dashed red;
+}
+
+.likesButtons{
     display: flex;
     gap: 1rem;
+}
+
+.likeButton{
+    display: flex;
+    align-items: center;
+    padding: 0;
+    gap: 0.5rem;
+    background-color: white;
+    border: none;
+}
+
+.buttonRight{
+    display: flex;
+    justify-content: space-between;   
+}
+
+.profilImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    font-size: 30px;
+    width: 50px; 
+    height: 50px;
+    background-color: grey;
+    border-radius: 50%; 
+}
+
+.content{
+    font-weight: 400;
+    font-size: 1rem;
+    border: 2px dashed red;
+    width: 100%;
 }
