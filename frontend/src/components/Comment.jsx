@@ -20,17 +20,28 @@ export default function Comment({ id }) {
 
         fetchComment();
     }, [id]);
+
     return (
         <>  <div>
             {comment ? <>
-                <div>
-                    <p>{comment.text}</p>
+                <div className={style.comment}>
+                    <div className={style.profilImg}>
+                        <p>{comment.account.username.charAt(0).toUpperCase()}</p>
+                    </div>
+                    <div>
+                        <p className={style.content} >{comment.text}</p>
+                        <div className={style.buttonRight}>
+                           
+                            <div className={style.likesButtons}>
+                                <button className={style.likeButton}><ThumbsUp /><p>{comment.likes}</p></button>
+                                <button className={style.likeButton} ><ThumbsDown /></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className={style.likesButton}>
-                    <ThumbsUp /><p>{comment.likes}</p>
-                    <ThumbsDown /><p>{comment.dislikes}</p>
-                </div>
-            </> : <p>loading...</p>}
+            </>
+                :
+                <p>loading...</p>}
         </div>
         </>
     )
