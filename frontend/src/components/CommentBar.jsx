@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styles from './CommentBar.module.css';
 
-export default function CommentBar() {
+export default function CommentBar({func}) {
   const textareaRef = useRef(null);
   const [value, setValue] = useState('');
 
