@@ -6,6 +6,7 @@ import ch.bbcag.backend.comment.Comment;
 import ch.bbcag.backend.price.Price;
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -42,7 +43,7 @@ public class Product {
             name = "combo_product",
             joinColumns = @JoinColumn(name = "combo_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private Set<Combo> linkedCombos;
+    private Set<Combo> linkedCombos = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {

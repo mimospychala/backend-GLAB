@@ -6,6 +6,7 @@ import ch.bbcag.backend.product.Product;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class Combo {
     private BigDecimal price;
     private Double nomNomRating;
     @ManyToMany(mappedBy = "linkedCombos")
-    private Set<Product> linkedProducts;
+    private Set<Product> linkedProducts = new HashSet<>();
     @OneToMany(mappedBy = "combo")
     private Set<Comment> linkedComments;
 

@@ -2,6 +2,7 @@ package ch.bbcag.backend.configuration;
 
 
 import ch.bbcag.backend.account.AccountConverter;
+import ch.bbcag.backend.combo.ComboController;
 import ch.bbcag.backend.price.PriceController;
 import ch.bbcag.backend.product.ProductController;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
@@ -71,6 +72,7 @@ public class WebConfiguration {
                             .requestMatchers(HttpMethod.POST, appConfiguration.getAuthUrls()).permitAll()
                             .requestMatchers(HttpMethod.GET, ProductController.PATH + "/**").permitAll()
                             .requestMatchers(HttpMethod.GET, PriceController.PATH + "/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, ComboController.PATH + "/**").permitAll()
                             .anyRequest()
                             .authenticated();
                 });

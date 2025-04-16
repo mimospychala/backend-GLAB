@@ -11,6 +11,7 @@ import DetailRoute from "./routes/DetailsRoute"
 import ListRoute from "./routes/ListRoute"
 import SignUpRoute from "./routes/SignUpRoute"
 import SignInRoute from "./routes/SignInRoute"
+import ComboListRoute from "./routes/ComboListRoute"
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
           path: "/auth/signup",
           element: <SignUpRoute />,
           action: SignUpRoute.action,
+      },
+      {
+        path: "combos",
+        element: <ComboListRoute/>,
+        loader: ComboListRoute.loader
       }
 
     ]

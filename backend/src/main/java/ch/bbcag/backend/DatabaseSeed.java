@@ -142,7 +142,7 @@ public class DatabaseSeed implements CommandLineRunner {
         }
 
         // 5 Combos (Drink + Snack)
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             Combo combo = new Combo();
             combo.setName("Combo " + (i + 1));
             combo.setDescription("Perfekt für den Snack-Abend.");
@@ -151,6 +151,8 @@ public class DatabaseSeed implements CommandLineRunner {
             combo.setPrice(BigDecimal.valueOf(4.99 + i));
 
             Set<Product> comboProducts = new HashSet<>();
+            products.get(i).getLinkedCombos().add(combo);
+            products.get(i + 10).getLinkedCombos().add(combo);
             comboProducts.add(products.get(i));        // Drink
             comboProducts.add(products.get(i + 10));   // Snack
             combo.setLinkedProducts(comboProducts);

@@ -7,6 +7,8 @@ import java.util.List;
 
 public class ComboMapper {
     public static ComboResponseDTO toResponseDTO(Combo combo) {
+
+        System.out.println("Linked Products: " + combo.getLinkedProducts());
         ComboResponseDTO comboResponseDTO = new ComboResponseDTO();
 
         comboResponseDTO.setId(combo.getId());
@@ -23,6 +25,7 @@ public class ComboMapper {
 
             comboResponseDTO.setLinkedCommentIds(combosIds);
         }
+
         if(combo.getLinkedProducts() != null){
             List<Integer> productIds = combo
                     .getLinkedProducts()
