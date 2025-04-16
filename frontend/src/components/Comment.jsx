@@ -20,7 +20,6 @@ export default function Comment({ id }) {
 
         fetchComment();
     }, [id]);
-    console.log(comment)
     return (
         <>  <div>
             {comment ? <>
