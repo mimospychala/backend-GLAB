@@ -2,9 +2,9 @@
     width: 270px;
     padding: 1rem;
     background-color: wheat;
-    margin-top: 106px;
+    margin-top: 0;
     position: fixed;
-    top: 0;
+    top: 106px;
     left: 0;
     height: 100vh;
     color: black;

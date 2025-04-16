@@ -1,6 +1,6 @@
 import { Link, useNavigate, useActionData, redirect, redirectDocument } from "react-router"
 import AuthForm from "@/components/AuthForm"
-
+import styles from "./SignInRoute.module.css"
 import { signIn } from "@/lib/auth"
 import { saveSession } from "@/lib/session"
 import { validateUser } from "@/lib/validateUser"
@@ -33,14 +33,16 @@ export default function SignInRoute() {
     }
 
     return (
-        <main>
-            <h2>Anmelden</h2>
-            <AuthForm onCancel={goBack} errors={errors} />
-            <p>
-                Hast du noch keinen Account? <Link to="/auth/signup">Hier</Link> kannst du dich
-                registrieren.
-            </p>
-        </main>
+        <main className={styles.center}>
+        <h2>Anmelden</h2>
+    
+        <AuthForm onCancel={goBack} errors={errors} />
+        
+        <p>
+            Hast du noch keinen Account? <Link to="/auth/signup">Hier</Link> kannst du dich registrieren.
+        </p>
+    </main>
+    
     )
 }
 

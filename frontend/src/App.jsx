@@ -8,10 +8,13 @@ import sideBarItems from "./lib/data/sideBarItems"
 
 function App() {
   return (
-      <>
-        <Header />
+    <>
+      <Header />
+      <SideBar sideBarItems={sideBarItems} />
+      <div className={styles.sidebarDiv}></div>
+
+      <div className={styles.headerDiv}/>
       <div className={styles.app}>
-        <SideBar sideBarItems={sideBarItems} />
         <div className={styles.content}>
           <Outlet />
         </div>

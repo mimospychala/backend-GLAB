@@ -1,5 +1,5 @@
 import { useNavigate, useActionData, redirect, Link } from "react-router"
-
+import styles from "./SignUpRoute.module.css"
 import { signUp } from "@/lib/auth"
 import { saveSession } from "@/lib/session"
 import { validateRegistration } from "@/lib/validateRegistration"
@@ -30,7 +30,7 @@ export default function SignUpRoute() {
     }
 
     return (
-        <main>
+          <main className={styles.center}>
             <h2>Registration</h2>
             <RegistrationForm onCancel={goBack} errors={errors} />
             <p>
