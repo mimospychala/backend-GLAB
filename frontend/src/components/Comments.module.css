@@ -22,3 +22,8 @@
     border-radius: 2px;
     scrollbar-width: none;
 }
+
+.sendButton{
+    display: flex;
+    justify-content: space-between;
+}

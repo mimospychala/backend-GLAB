@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 
 export default function CommentButton({func ,...props}){
     return (
-        <Button func={func}>
+        <Button func={func} props>
             <MessageCircle/>
         </Button>
     )
