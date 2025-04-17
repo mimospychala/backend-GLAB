@@ -1,26 +1,36 @@
-import IndexRoute from "@/routes/IndexRoute";
 import styles from "./ShoppingCartCard.module.css";
-import "./ShoppingCartCard.module.css";
-import { useState, useEffect } from "react";
 import Button from "./Button";
 import { useShoppingCart } from "@/lib/shoppingcart";
+import { useState, useEffect } from "react";
+import { fetchProductById } from "@/lib/products.API";
+import { fetchPriceById } from "@/lib/prices.API";
 
-export default function ShoppingCartCard({ product }) {
+export default function ShoppingCartCard({ values }) {
   const [products, addProduct, removeProduct] = useShoppingCart()
+  const [product, setProduct] = useState(null)
+  const { id, volume } = values;
 
-  const { id, name, marke, prices } = product;
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const fetchProduct = await fetchProductById(id)
+      const fetchtPrice = await Promise.all(
+        fetchProduct.linkedPricesIds.map((priceId) => fetchPriceById(priceId)))
+      fetchProduct.prices = fetchtPrice
+      setProduct(fetchProduct)
+    }
+    fetchProduct()
+  }, []);
+
 
   const productInCart = products.find(p => p.id === id)
-  const count = productInCart ? productInCart.count : 0
+  const count = productInCart ? productInCart.count : values.count
 
   const increment = () => {
-    addProduct(product)
-    setCount(prev => prev + 1);
+    addProduct({ ...product, volume })
   };
 
   const decrement = () => {
-    removeProduct(product)
-    setCount(prev => (prev > 1 ? prev - 1 : 1));
+    removeProduct({ ...product, volume })
   };
 
   function calcPrice(price, count) {
@@ -29,20 +39,33 @@ export default function ShoppingCartCard({ product }) {
     return result2.toFixed(2);
   }
 
+  function findPrice() {
+    if (!product?.prices) return 0;
+    const priceVolume = product.prices.find(p => p.volume === volume);
+    return priceVolume?.price || 0;
+  }
+
   return (
-    <article>
-      <img src="/snacks.png" alt="Snacks" className={styles.drinksSnacks} />
-      <div>
-        <h3>{name}</h3>
-        <p>{marke}</p>
-      </div>
-      <div>
-        <Button className={styles.smallButton} onClick={decrement}>-</Button>
-        {count}
-        <Button className={styles.smallButton} onClick={increment}>+</Button>
-        <p>{calcPrice(prices[0].price, count)} CHF</p>
-      </div>
-    </article>
-  );
+    product ? (
+      <article>
+        <img src="/snacks.png" alt="Snacks" className={styles.drinksSnacks} />
+
+        <div>
+          <h3>{product.name}</h3>
+          <p>{product.marke}</p>
+        </div>
+
+        <div>
+          <Button className={styles.smallButton} onClick={decrement}>-</Button>
+          {count}
+          <Button className={styles.smallButton} onClick={increment}>+</Button>
+          <p>{calcPrice(findPrice(), count)} CHF</p>
+        </div>
+      </article>
+    ) : (
+      <article>
+        Loading...
+      </article>
+    )
+  )
 }
- 

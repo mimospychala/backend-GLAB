@@ -1,6 +1,7 @@
 import { Link } from "react-router"
 import styles from "./BestProductCard.module.css"
 import "./BestProductCard.module.css"
+import Button from "./Button"
 
 export default function BestProductCard({ product, label, img, id }) {
     const { name, marke, volumes, altImg } = product
@@ -14,8 +15,10 @@ export default function BestProductCard({ product, label, img, id }) {
           <img src={img} alt={label} />
         </article>
       </Link>
+      
 
       </div>
+      
       </>
     )
   }

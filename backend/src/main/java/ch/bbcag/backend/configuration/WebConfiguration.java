@@ -2,11 +2,9 @@ package ch.bbcag.backend.configuration;
 
 
 import ch.bbcag.backend.account.AccountConverter;
-<<<<<<< HEAD
 import ch.bbcag.backend.combo.ComboController;
-=======
+
 import ch.bbcag.backend.comment.CommentController;
->>>>>>> 10b1ea1 (Implemented coment into DetailsView)
 import ch.bbcag.backend.price.PriceController;
 import ch.bbcag.backend.product.ProductController;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;

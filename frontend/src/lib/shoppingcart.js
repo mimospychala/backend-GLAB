@@ -1,7 +1,7 @@
 import { atom, useAtom } from "jotai"
 import { useEffect } from "react"
 
-const productsInStorage = localStorage.getItem("shoppingcart")
+const productsInStorage = localStorage.getItem("cart")
 
 
 
@@ -11,7 +11,7 @@ export function useShoppingCart() {
     const [products, setProducts] = useAtom(productsAtom)
 
     useEffect(() => {
-        const productsInStorage = localStorage.getItem("shoppingcart")
+        const productsInStorage = localStorage.getItem("cart")
         if(productsInStorage) {
             const storedProducts = JSON.parse(productsInStorage)
             setProducts(storedProducts)
