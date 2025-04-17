@@ -29,6 +29,8 @@ export default function ShoppingCartCard({ product }) {
     return result2.toFixed(2);
   }
 
+  console.log(prices)
+
   return (
     <article>
       <img src="/snacks.png" alt="Snacks" className={styles.drinksSnacks} />
