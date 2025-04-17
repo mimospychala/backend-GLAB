@@ -6,6 +6,7 @@ import CommentBar from "./CommentBar";
 import { X } from "lucide-react";
 import Button from "./Button";
 import { createComment } from "@/lib/comments.API";
+import { fetchComboById } from "@/lib/combos.API";
 
 
 
@@ -13,6 +14,8 @@ import { createComment } from "@/lib/comments.API";
 async function getProductById(id) {
     return await fetchProductById(id)
 }
+
+
 
 
 export default function Comments({ id, func }) {
@@ -27,22 +30,27 @@ export default function Comments({ id, func }) {
     useEffect(() => {
         fetchComment();
     }, [id]);
-    
+
     async function postComment(comment, id) {
-        if(!comment){return}
+        if (!comment) return;
+
+
+
+
         const data = {
-            text : `${comment}`,
-            productId :  id,
-            comboId :  1
-        }
-    
-        await createComment(data)
-        await fetchComment()
+            text: comment,
+            productId: id,
+            comboId: 1
+        };
+
+
+        await createComment(data);
+        await fetchComment();
     }
-    
+
 
     return (<>
-        {product ?
+        {product ? (
             <>
                 <div>
                     <div className={styles.comentareHeader}>
@@ -63,7 +71,10 @@ export default function Comments({ id, func }) {
                         <Button onClick={(e) => postComment(comment, id)} >Send</Button>
                     </div>
                 </div>
-            </>
-            : <p>loading...</p>}
+            </>) :
+            <div>
+                loading...
+            </div>}
+
     </>)
 }

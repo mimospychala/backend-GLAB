@@ -12,6 +12,7 @@ import ListRoute from "./routes/ListRoute"
 import SignUpRoute from "./routes/SignUpRoute"
 import SignInRoute from "./routes/SignInRoute"
 import ComboListRoute from "./routes/ComboListRoute"
+import ComboDetailRoute from "./routes/ComboDetailRoute"
 
 const router = createBrowserRouter([
   {
@@ -54,8 +55,12 @@ const router = createBrowserRouter([
         path: "combos",
         element: <ComboListRoute/>,
         loader: ComboListRoute.loader
+      },
+      {
+        path: "combos/:id",
+        element: <ComboDetailRoute/>,
+        loader: ComboDetailRoute.loader
       }
-
     ]
   }
 ])
