@@ -1,22 +1,28 @@
-.logo{
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 107px;
+    padding-left: 270px;
+    padding-right: 0.75rem;
+    background-color: #E37C24;
+    border-bottom: 2px solid black;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
     width: 80px;
     height: 80px;
 }
 
-.header{
-    position: fixed;
-    display: flex;
-    justify-content:  center;
-    padding: 0.75rem;
-    background-color: #E37C24;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 2px solid black;
+.rightButtons {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
-.filler{
-    width: 270px;
-    height: 100%;
-}
-

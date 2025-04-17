@@ -14,7 +14,7 @@ export default function BestProductCard({ product, label, img, id }) {
           <img src={img} alt={label} />
         </article>
       </Link>
-      <Button> </Button>
+
       </div>
       </>
     )

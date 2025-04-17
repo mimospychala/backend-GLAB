@@ -18,26 +18,23 @@ export default function Header() {
     }
 
     return (
-        <header>
-
-
-            <div className={styles.header}>
-                <div className={styles.filler}>
-                <ButtonGroup>
-                    {user ? (
-                        <>
-                            <Button onClick={logout}>Abmelden</Button>
-                        </>
-                    ) : (
-                        <Button to="/auth/signin">Anmelden</Button>
-                    )}
-                </ButtonGroup>
-                </div>
-                <img src="/logo.png" alt="Logo Nom Nom Bar" className={styles.logo} />
-            </div>
-
-
-        </header>
+        <div className={styles.header}>
+        <div className={styles.logoWrapper}>
+            <img src="/logo.png" alt="Logo Nom Nom Bar" className={styles.logo} />
+        </div>
+        
+        <div className={styles.rightButtons}>
+            <ButtonGroup>
+                {user ? (
+                    <Button onClick={logout}>Abmelden</Button>
+                ) : (
+                    <Button to="/auth/signin">Anmelden</Button>
+                )}
+            </ButtonGroup>
+        </div>
+    </div>
+    
+    
 
     )
 }
