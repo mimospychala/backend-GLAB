@@ -1,90 +1,51 @@
 const sideBarItems = [
   {
+    name: "Drinks",
+    children: [
+      {
+        name: "Mit Kohlensäure",
+        children: [
+          { name: "Cola", url: "#" },
+          { name: "Sprite", url: "#" },
+          { name: "Fanta", url: "#" }
+        ]
+      },
+      {
+        name: "Ohne Kohlensäure",
+        children: [
+          { name: "Wasser", url: "#" },
+          { name: "Eistee", url: "#" },
+          { name: "Saft", url: "#" }
+        ]
+      }
+    ]
+  },
+  {
     name: "Snacks",
     children: [
       {
-        name: "Chips",
+        name: "Salzig",
         children: [
-          { name: "Paprika", url: "#" },
-          { name: "Salt & Vinegar", url: "#" },
-          { name: "Classic", url: "#" }
+          { name: "Chips", url: "#" },
+          { name: "Nüsse", url: "#" }
         ]
       },
       {
-        name: "Nüsse",
-        children: [
-          { name: "Gesalzen", url: "#" },
-          { name: "Geröstet", url: "#" },
-          { name: "Mit Honig", url: "#" }
-        ]
-      },
-      {
-        name: "Süsses",
+        name: "Süss",
         children: [
           { name: "Schokolade", url: "#" },
           { name: "Gummibärchen", url: "#" },
-          { name: "Cookies", url: "#" }
+          { name: "Kekse", url: "#" }
         ]
       }
     ]
   },
   {
-    name: "Getränke",
+    name: "Combos",
     children: [
-      {
-        name: "Alkoholisch",
-        children: [
-          {
-            name: "Vodka",
-            url: "#"
-          },
-          {
-            name: "Bier",
-            children: [
-              {
-                name: "Dunkel",
-                url: "#"
-              },
-              {
-                name: "Hell",
-                url: "#"
-              }
-            ]
-          },
-          {
-            name: "Wein",
-            children: [
-              { name: "Rotwein", url: "#" },
-              { name: "Weißwein", url: "#" }
-            ]
-          }
-        ]
-      },
-      {
-        name: "Alkoholfrei",
-        children: [
-          { name: "Wasser", url: "#" },
-          { name: "Softdrinks", url: "#" },
-          { name: "Säfte", url: "#" }
-        ]
-      }
-    ]
-  },
-  {
-    name: "Kategorien",
-    children: [
-      { name: "Vegan", url: "#" },
-      { name: "Glutenfrei", url: "#" },
-      { name: "Bio", url: "#" },
-      { name: "Neuheiten", url: "#" }
-    ]
-  },
-  {
-    name: "Angebote",
-    children: [
-      { name: "Bestseller", url: "#" },
-      { name: "Rabatte", url: "#" },
-      { name: "Saisonale Angebote", url: "#" }
+      { name: "Snack + Drink", url: "#" },
+      { name: "Süß + Salzig", url: "#" },
+      { name: "Family Pack", url: "#" }
     ]
   }
 ];

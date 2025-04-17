@@ -10,9 +10,9 @@ export default function IndexRoute() {
         <>
             <h3 className={styles.title}>Nom Nom Bar</h3>
             <div className={styles.container}>
-                <BestProductCard product={product[0]} label="Best Snack" img="/snacks.png" />
-                <BestProductCard product={product[1]} label="Best Combo" img="/combo.png" />
-                <BestProductCard product={product[2]} label="Best Drink" img="/drinks.png" />
+                <BestProductCard product={product[0]} label="Best Snack" img="/snacks.png" id={15}/>
+                <BestProductCard product={product[1]} label="Best Combo" img="/combo.png" id={5}/>
+                <BestProductCard product={product[2]} label="Best Drink" img="/drinks.png" id={2}/>
 
             </div>
 
