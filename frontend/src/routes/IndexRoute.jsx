@@ -1,10 +1,6 @@
-import Header from "@/components/Header"
-import LinkButton from "@/components/LinkButton"
-import SideBar from "@/components/SideBar"
-import ShoppingCartCard from "@/components/ShoppingCartCard"
 import BestProductCard from "@/components/bestProductCard"
 import styles from "./IndexRoute.module.css"
-import Button from "@/components/Button"
+
 
 export default function IndexRoute() {
     return (
@@ -14,10 +10,7 @@ export default function IndexRoute() {
                 <BestProductCard product={product[0]} label="Best Snack" img="/snacks.png" id={15}/>
                 <BestProductCard product={product[1]} label="Best Combo" img="/combo.png" id={5}/>
                 <BestProductCard product={product[2]} label="Best Drink" img="/drinks.png" id={2}/>
-
-
             </div>
-
         </>
     )
 }
