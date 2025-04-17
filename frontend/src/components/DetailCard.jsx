@@ -147,6 +147,7 @@ export default function DetailCard({ product }) {
                     <div>
                         <p>{product.description}</p>
                     </div>
+                    <Button to="/products">Alle Produkte</Button>
                 </>
          ) : (
             <div className={styles.container}>
