@@ -2,11 +2,8 @@ package ch.bbcag.backend.configuration;
 
 
 import ch.bbcag.backend.account.AccountConverter;
-import ch.bbcag.backend.combo.ComboController;
-
-import ch.bbcag.backend.comment.CommentController;
-import ch.bbcag.backend.price.PriceController;
-import ch.bbcag.backend.product.ProductController;
+import ch.bbcag.backend.bid.BidController;
+import ch.bbcag.backend.container.ContainerController;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
@@ -72,10 +69,8 @@ public class WebConfiguration {
                     authorizeRequests
                             .requestMatchers(appConfiguration.getAllowedUrls()).permitAll()
                             .requestMatchers(HttpMethod.POST, appConfiguration.getAuthUrls()).permitAll()
-                            .requestMatchers(HttpMethod.GET, ProductController.PATH + "/**").permitAll()
-                            .requestMatchers(HttpMethod.GET, PriceController.PATH + "/**").permitAll()
-                            .requestMatchers(HttpMethod.GET, ComboController.PATH + "/**").permitAll()
-                            .requestMatchers(HttpMethod.GET, CommentController.PATH + "/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, BidController.PATH + "/**").permitAll()
+                            .requestMatchers(HttpMethod.GET, ContainerController.PATH + "/**").permitAll()
                             .anyRequest()
                             .authenticated();
                 });
