@@ -88,7 +88,7 @@ public class DatabaseSeed {
 
             Container container3 = new Container();
             container3.setOwner(charlie);
-            container3.setName("Gaming Loot Crate");
+            container3.setName("Gaming Crate");
             container3.setDescription("Gaming gear, skins and collectibles.");
             container3.setAskingPrice(new BigDecimal("30"));
             container3.setImageUrls(List.of(
