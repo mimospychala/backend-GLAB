@@ -1,7 +1,5 @@
 package ch.bbcag.backend.account;
 
-import ch.bbcag.backend.combo.Combo;
-import ch.bbcag.backend.comment.Comment;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
@@ -9,15 +7,15 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.awt.print.Book;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 public class Account implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -32,17 +30,14 @@ public class Account implements UserDetails {
     @Size(min = 8, max = 255)
     private String password;
 
+    @Column(nullable = false)
+    private BigDecimal balance;
+
     @CreationTimestamp
     private Instant createdAt;
 
     @UpdateTimestamp
     private Instant updatedAt;
-
-    @OneToMany(mappedBy = "account")
-    private Set<Comment> comments;
-
-    @OneToMany(mappedBy = "account")
-    private Set<Combo> combos;
 
     public Integer getId() {
         return id;
@@ -60,6 +55,7 @@ public class Account implements UserDetails {
         this.email = email;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
@@ -68,12 +64,21 @@ public class Account implements UserDetails {
         this.username = userName;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     public Instant getCreatedAt() {
@@ -90,22 +95,6 @@ public class Account implements UserDetails {
 
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
-    }
-
-    public Set<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
-    }
-
-    public Set<Combo> getCombos() {
-        return combos;
-    }
-
-    public void setCombos(Set<Combo> combos) {
-        this.combos = combos;
     }
 
     @Override
@@ -133,7 +122,6 @@ public class Account implements UserDetails {
         return true;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -151,7 +139,8 @@ public class Account implements UserDetails {
         return "Account{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
-                ", userName='" + username + '\'' +
+                ", username='" + username + '\'' +
+                ", balance=" + balance +
                 '}';
     }
 }

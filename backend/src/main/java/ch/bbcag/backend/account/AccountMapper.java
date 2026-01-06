@@ -1,11 +1,15 @@
 package ch.bbcag.backend.account;
 
 public class AccountMapper {
+
+    private AccountMapper() {}
+
     public static Account fromDTO(AccountRequestDTO dto) {
         Account account = new Account();
         account.setUsername(dto.getUsername());
         account.setPassword(dto.getPassword());
         account.setEmail(dto.getEmail());
+        account.setBalance(dto.getBalance());
         return account;
     }
 
@@ -13,6 +17,7 @@ public class AccountMapper {
         AccountResponseDTO dto = new AccountResponseDTO();
         dto.setId(account.getId());
         dto.setUsername(account.getUsername());
+        dto.setBalance(account.getBalance());
         return dto;
     }
 

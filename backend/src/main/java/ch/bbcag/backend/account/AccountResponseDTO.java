@@ -1,10 +1,11 @@
 package ch.bbcag.backend.account;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 public class AccountResponseDTO {
     private Integer id;
     private String username;
+    private BigDecimal balance;
 
     public Integer getId() {
         return id;
@@ -20,5 +21,13 @@ public class AccountResponseDTO {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 }
