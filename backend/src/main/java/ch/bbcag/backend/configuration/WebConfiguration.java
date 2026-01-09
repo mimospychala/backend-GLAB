@@ -56,12 +56,19 @@ public class WebConfiguration {
         http
                 .csrf(CsrfConfigurer::disable)
                 .cors(corsConf -> corsConf.configurationSource(corsConfigurationSource()))
-                .exceptionHandling(c -> {
-                    c.accessDeniedHandler((request, response, authException) -> {
-                        response.setContentType("application/json");
-                        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authorization Failed : " + authException.getMessage());
-                    });
-                })
+                .exceptionHandling(eh -> eh
+                        .authenticationEntryPoint((request, response, authException) -> {
+                            response.setContentType("application/json");
+                            response.sendError(HttpServletResponse.SC_UNAUTHORIZED,
+                                    "Unauthorized: " + authException.getMessage());
+                        })
+                        .accessDeniedHandler((request, response, accessDeniedException) -> {
+                            response.setContentType("application/json");
+                            response.sendError(HttpServletResponse.SC_FORBIDDEN,
+                                    "Forbidden: " + accessDeniedException.getMessage());
+                        })
+                )
+
                 .oauth2ResourceServer(oauthConf -> oauthConf.jwt(jwtConf -> jwtConf.jwtAuthenticationConverter(new AccountConverter())))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .headers(headerConf -> headerConf.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
@@ -71,6 +78,8 @@ public class WebConfiguration {
                             .requestMatchers(HttpMethod.POST, appConfiguration.getAuthUrls()).permitAll()
                             .requestMatchers(HttpMethod.GET, BidController.PATH + "/**").permitAll()
                             .requestMatchers(HttpMethod.GET, ContainerController.PATH + "/**").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/accounts").permitAll()
+                            .requestMatchers(HttpMethod.POST, "/accounts/signin").permitAll()
                             .anyRequest()
                             .authenticated();
                 });

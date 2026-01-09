@@ -53,23 +53,25 @@ public class BidService {
                 .orElseThrow(() -> new EntityNotFoundException("Container not found with id " + dto.getContainerId()));
 
         if (container.getStatus() != ContainerStatus.ACTIVE) {
-            throw new IllegalStateException("Container is not active");
+            throw BidException.conflict("Container is not active");
         }
 
-        // Optional: nicht auf eigenen Container bieten
+        // Nicht auf eigenen Container bieten
         if (container.getOwner().getId().equals(account.getId())) {
-            throw new IllegalStateException("Owner cannot bid on own container");
+            throw BidException.badRequest("Owner cannot bid on own container");
         }
 
         // Muss höher als aktuelles HighestBid sein
         BigDecimal currentHighest = getHighestBidAmountForContainer(container.getId());
         if (currentHighest != null && dto.getAmount().compareTo(currentHighest) <= 0) {
-            throw new IllegalStateException("Bid must be higher than current highest bid");
+            throw BidException.conflict(
+                    "Neues Gebot muss höher sein als das höchste Gebot (" + currentHighest + " CHF)."
+            );
         }
 
         // Balance check
         if (account.getBalance().compareTo(dto.getAmount()) < 0) {
-            throw new IllegalStateException("Not enough balance");
+            throw BidException.conflict("Nicht genügend Balance für dieses Gebot.");
         }
 
         // Balance abziehen
@@ -79,6 +81,7 @@ public class BidService {
         Bid bid = BidMapper.fromRequestDTO(dto, account, container);
         return bidRepository.save(bid);
     }
+
 
     public void deleteById(Integer id) {
         Bid existing = findById(id);

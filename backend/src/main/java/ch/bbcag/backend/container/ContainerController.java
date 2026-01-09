@@ -1,5 +1,6 @@
 package ch.bbcag.backend.container;
 
+import ch.bbcag.backend.account.Account;
 import ch.bbcag.backend.bid.BidService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -13,6 +14,7 @@ import jakarta.validation.Valid;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -55,31 +57,16 @@ public class ContainerController {
     }
 
     @PostMapping
-    @Operation(summary = "Create a new container")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Container was added successfully",
-                    content = @Content(schema = @Schema(implementation = ContainerResponseDTO.class))),
-            @ApiResponse(responseCode = "404", description = "Owner account not found",
-                    content = @Content),
-            @ApiResponse(responseCode = "409", description = "There was a conflict while creating the container",
-                    content = @Content)
-    })
     public ResponseEntity<?> insert(
-            @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "The new container to create")
-            @Valid @RequestBody ContainerRequestDTO newContainerDTO
+            @RequestBody ContainerRequestDTO dto,
+            @AuthenticationPrincipal Account currentUser
     ) {
-        try {
-            Container saved = containerService.insertFromDTO(newContainerDTO);
-            BigDecimal highestBid = bidService.getHighestBidAmountForContainer(saved.getId());
-            Long bidCount = bidService.countBidsForContainer(saved.getId());
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(ContainerMapper.toResponseDTO(saved, highestBid, bidCount));
-        } catch (EntityNotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-        } catch (DataIntegrityViolationException e) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Container could not be created");
-        }
+        Container saved = containerService.insertFromDTO(dto, currentUser);
+        // falls du highestBid/bidCount im Response brauchst:
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ContainerMapper.toResponseDTO(saved, null, 0L));
     }
+
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a container")
@@ -89,10 +76,11 @@ public class ContainerController {
     })
     public ResponseEntity<?> delete(
             @Parameter(description = "Id of container to delete")
-            @PathVariable("id") Integer id
+            @PathVariable("id") Integer id,
+            @AuthenticationPrincipal Account account
     ) {
         try {
-            containerService.deleteById(id);
+            containerService.deleteById(id, account);
             return ResponseEntity.noContent().build();
         } catch (EntityNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Container was not found");

@@ -13,5 +13,7 @@ public interface BidRepository extends JpaRepository<Bid, Integer> {
 
     long countByContainerId(Integer containerId);
 
+    void deleteByContainerId(Integer containerId);
+
     Optional<Bid> findTopByContainerIdOrderByAmountDesc(Integer containerId);
 }

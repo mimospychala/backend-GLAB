@@ -1,5 +1,6 @@
 package ch.bbcag.backend;
 
+import ch.bbcag.backend.bid.BidException;
 import org.hibernate.TransientPropertyValueException;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
@@ -71,4 +72,10 @@ public class GlobalControllerExceptionHandler {
     // Strings don't get serialized in ResponseEntity body so with this record it gets serialized as json
     private record JsonMessage(String message) {
     }
+
+    @ExceptionHandler(BidException.class)
+    public ResponseEntity<?> handleBidException(BidException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(new JsonMessage(ex.getMessage()));
+    }
+
 }
